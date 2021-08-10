@@ -1,0 +1,94 @@
+body {
+    overflow: hidden;
+}
+
+:root {
+    --main-dark: #F7F7F7;
+    --night-dark: #002F5C;
+    --moon-dark: #ffce45;
+    --moon-stroke-dark: #ffce45;
+}
+
+.dark-mode {
+    --main-dark: #002F5C;
+    --night-dark: #CFCFCF;
+    --moon-dark: #fdb610;
+    --moon-stroke-dark: black;
+}
+
+.ui-wrapper {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: coral;
+    z-index: -1;
+}
+
+.ui-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Tablet */
+.ui-tablet {
+    position: relative;
+    width: 50%;
+    height: 50%;
+    z-index: -1;
+}
+
+.ui-background {
+    position: absolute;
+    width: 43%;
+    height: 90%;
+    background-color: var(--main-dark);
+    z-index: -2;
+}
+
+.ui-tablet-container {
+    position: absolute;
+    width: 43%;
+    height: 90%;
+    z-index: 1;
+}
+
+.tablet-night {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}
+
+.tablet-night-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.5vh;
+    height: 3.5vh;
+
+    border-radius: 0.8vh;
+    border: none;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+
+    background-color: var(--night-dark);
+
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.tablet-night-btn svg {
+    width: 2vh;
+    flex-shrink: 0;
+    fill: var(--moon-dark);
+    stroke: var(--moon-stroke-dark);
+    transition: 0.2s;
+    cursor: pointer;
+}
