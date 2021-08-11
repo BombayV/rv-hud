@@ -1,7 +1,9 @@
 local Wait = Wait
 local CreateThread = CreateThread
 
--- Functions
+isTabletOpen = false
+local isTabletOpen = isTabletOpen
+
 local function getDayText()
     local day = 'Mon'
     local dayNum = GetClockDayOfWeek()
@@ -56,7 +58,7 @@ end
 
 CreateThread(function()
     while true do
-        if isOpen then
+        if isTabletOpen then
             local min, hours, day, month, dayText = GetClockMinutes(), GetClockHours(), GetClockDayOfMonth(), getMonthText(), getDayText()
             local basedHour = 0
             local timeText = 'AM'
