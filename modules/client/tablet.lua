@@ -72,7 +72,7 @@ CreateThread(function()
             end
             local time = tostring(basedHour .. ':' .. min .. ' ' .. timeText)
             SendNUIMessage({
-                action = "time",
+                action = "updateTime",
                 time = time,
                 day = day,
                 dayText = dayText,
