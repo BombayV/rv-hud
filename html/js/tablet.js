@@ -7,8 +7,7 @@ doc.querySelector('.tablet-night-btn').addEventListener('click', () => {
 
 const restoreTablet = () => {
     // Darkmode Saving
-    getBool('currentMode') ? getBool('currentMode') : currentMode
-    currentMode ? doc.body.classList.add('dark-mode') : doc.body.classList.remove('dark-mode');
+    getBool('currentMode') != null ? (currentMode = getBool('currentMode'), getBool('currentMode') ? doc.body.classList.add('dark-mode') : doc.body.classList.remove('dark-mode')) : currentMode;
 
     //
 }
