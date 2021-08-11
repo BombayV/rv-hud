@@ -1,3 +1,15 @@
+@font-face {
+    font-display: swap;
+    font-family: def;
+    src: url('../fonts/KumbhSans-Regular.ttf');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: defBold;
+    src: url('../fonts/KumbhSans-Bold.ttf');
+}
+
 body {
     overflow: hidden;
 }
@@ -7,6 +19,7 @@ body {
     --night-dark: #002F5C;
     --moon-dark: #ffce45;
     --moon-stroke-dark: #ffce45;
+    --text-dark: rgb(10, 10, 10);
 }
 
 .dark-mode {
@@ -14,6 +27,7 @@ body {
     --night-dark: #CFCFCF;
     --moon-dark: #fdb610;
     --moon-stroke-dark: black;
+    --text-dark: #ececec;
 }
 
 .ui-wrapper {
@@ -54,16 +68,44 @@ body {
 }
 
 .ui-tablet-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
     position: absolute;
-    width: 43%;
+    width: 42%;
     height: 90%;
     z-index: 1;
 }
 
+/* Header */
+.tablet-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    width: 100%;
+    height: 5%;
+}
+
+.header-time-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 15%;
+}
+
+.header-time-container span {
+    font-family: defbold;
+    font-size: 1.0vh;
+    color: var(--text-dark);
+}
+
+/* Darkmode */
 .tablet-night {
     position: absolute;
-    bottom: 5%;
-    right: 5%;
+    bottom: 3%;
+    right: 2%;
 }
 
 .tablet-night-btn {

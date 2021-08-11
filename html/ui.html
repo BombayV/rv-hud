@@ -9,11 +9,12 @@
     <title>Custom Overall Hud</title>
 
     <!--CSS and images links-->
+    <link rel="preload" href="./fonts/KumbhSans-Regular.ttf" as="font" crossorigin="anonymous"/>
+    <link rel="preload" href="./fonts/KumbhSans-Bold.ttf" as="font" crossorigin="anonymous"/>
     <link rel="stylesheet" href="./css/hud.css">
     <link rel="stylesheet" href="./css/carhud.css">
     <link rel="stylesheet" href="./css/jobs.css">
     <link rel="stylesheet" href="./css/tablet.css">
-    <!--<link rel="preload" href="./fonts/KumbhSans-Bold.ttf" as="font" crossorigin="anonymous" />-->
 </head>
 
 <body>
@@ -23,7 +24,17 @@
             <img class="ui-tablet" src="./img/tablet.png" alt="Tablet">
             <div class="ui-background"></div>
             <div class="ui-tablet-container">
+                <div class="tablet-header-container">
+                    <div class="header-time-container">
+                        <span id="tablet-time">0:00 AM</span>
+                        <span id="tablet-day-text">Mon</span>
+                        <span id="tablet-month">Jan</span>
+                        <span id="tablet-day">1</span>
+                    </div>
+                    <div class="header-info-container">
 
+                    </div>
+                </div>
                 <!--Dark Mode Button-->
                 <div class="tablet-night">
                     <button class="tablet-night-btn" aria-label="Invert colors">
