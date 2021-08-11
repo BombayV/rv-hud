@@ -9,6 +9,7 @@ description 'A paid hud created for RevelationRP'
 version '0.0.1'
  
 client_scripts {
+    'config/config_cl.lua',
     'modules/client/*.lua'
 }
 
