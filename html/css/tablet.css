@@ -161,7 +161,15 @@ body {
 .tablet-panel-container {
     position: relative;
     width: 100%;
-    height: 95.5%;
+    height: 94.5%;
+
+    background-color: blue;
+}
+
+.panel-page {
+    position: relative;
+    height: 100%;
+    width: 100%;
 }
 
 /* Darkmode */

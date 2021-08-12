@@ -1,4 +1,7 @@
 const sidebar = doc.getElementById('sidebar');
+const hudIndex = doc.getElementById('hud-index');
+const carhudIndex = doc.getElementById('carhud-index');
+const jobsIndex = doc.getElementById('jobs-index');
 
 let currentMode = false;
 let barStatus = true;
@@ -14,6 +17,12 @@ sidebar.addEventListener('click', () => {
     storeId('barStatus', barStatus)
 })
 
+a.addEventListener('click', () => openPage('hud-page'));
+
+b.addEventListener('click', () => openPage('carhud-page'))
+
+c.addEventListener('click', () => openPage('jobs-page'))
+
 const restoreTablet = () => {
     // Darkmode
     getBool('currentMode') != null ? (currentMode = getBool('currentMode'), getBool('currentMode') ? doc.body.classList.add('dark-mode') : doc.body.classList.remove('dark-mode')) : currentMode;
@@ -21,4 +30,17 @@ const restoreTablet = () => {
     // Sidebar
     const par = sidebar.parentNode;
     getBool('barStatus') != null ? (barStatus = getBool('barStatus'), getBool('barStatus') ? (par.style.left = "-20.5%", par.style.background = "transparent", par.style.borderRight = "none", par.style.transition = "left 0.1s") : (par.style.left = "-0.5%", par.style.background = "var(--opaque-dark)", par.style.borderRight = "0.4vh solid var(--border-dark)", par.style.transition = "left 0s")) : barStatus;
+}
+
+function openPage(id) {
+    let target = doc.getElementById(id);
+    const pageContent = doc.getElementsByClassName('panel-page');
+    if (target.style.opacity == '1') {
+        target.style.opacity = '0';
+    } else {
+        for (let i = 0; i < pageContent.length; i++) {
+            pageContent[i].style.opacity = '0';
+        }
+        target.style.opacity = '1';
+    }
 }
