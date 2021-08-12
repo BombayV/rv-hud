@@ -10,7 +10,7 @@ doc.querySelector('.tablet-night-btn').addEventListener('click', () => {
 
 sidebar.addEventListener('click', () => {
     const par = sidebar.parentNode;
-    barStatus ? (barStatus = false, par.style.left = "-0.5%", par.style.background = "var(--opaque-dark)", par.style.borderRight = "0.4vh solid var(--border-dark)") : (barStatus = true, par.style.left = "-20.5%", par.style.background = "transparent", par.style.borderRight = "none")
+    barStatus ? (barStatus = false, par.style.left = "-0.5%", par.style.background = "var(--opaque-dark)", par.style.borderRight = "0.4vh solid var(--border-dark)", par.style.transition = "left 0s") : (barStatus = true, par.style.left = "-20.5%", par.style.background = "transparent", par.style.borderRight = "none", par.style.transition = "left 0.2s")
     
 })
 
