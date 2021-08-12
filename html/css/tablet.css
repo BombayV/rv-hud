@@ -91,16 +91,16 @@ body {
     justify-content: center;
     align-items: center;
     top: 1.2%;
-    left: -0.5%;
+    left: -20.5%;
     width: 20%;
     height: 97.8%;
 
     border-bottom-left-radius: 0.6vh;
     border-top-left-radius: 0.6vh;
-    border-right: 0.4vh solid var(--border-dark);
-    background-color: var(--opaque-dark);
+    border-right: none;
+    background-color: transparent;
     z-index: 1;
-    transition: left 0.2s;
+    transition: left 0;
 }
 
 .sidebar-square {
