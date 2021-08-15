@@ -1,5 +1,6 @@
 window.addEventListener('load', () => {
     restoreTablet();
+    this.window.localStorage.clear();
 });
 
 const getBool = item => JSON.parse(localStorage.getItem(item));
