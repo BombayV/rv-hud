@@ -22,6 +22,8 @@ body {
     --text-dark: #0a0a0a;
     --opaque-dark: #333333;
     --border-dark: #777777;
+    --sidebar-dark: #ebebeb;
+    --hover-dark: #3082ec;
 }
 
 .dark-mode {
@@ -32,6 +34,8 @@ body {
     --text-dark: #ececec;
     --opaque-dark: #1a2838;
     --border-dark: #304c70;
+    --sidebar-dark: #ececec;
+    --hover-dark: #3082ec;
 }
 
 .ui-wrapper {
@@ -88,7 +92,7 @@ body {
     position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     top: 1.2%;
     left: -20.5%;
@@ -102,6 +106,35 @@ body {
     z-index: 1;
     transition: left 0;
 }
+
+.sidebar-title {
+    color: var(--sidebar-dark);
+    font-size: 1.8vh;
+    font-family: def;
+    text-decoration: none;
+    margin-top: 8%;
+    cursor: pointer;
+}
+
+.sidebar-title:hover {
+    color: var(--hover-dark);
+    text-decoration: underline;
+}
+
+.header {
+    color: var(--sidebar-dark);
+    font-size: 2.0vh;
+    font-family: defbold;
+    margin-top: 25%;
+    text-decoration: underline;
+    cursor:auto;
+}
+
+.header:hover {
+    color: var(--sidebar-dark);
+    text-decoration: underline;
+}
+
 
 .sidebar-square {
     position: absolute;
@@ -119,7 +152,7 @@ body {
 
 .sidebar-square i {
     font-size: 1.6vh;
-    color: var(--text-dark);
+    color: var(--sidebar-dark);
 }
 
 /* Header */
@@ -162,8 +195,6 @@ body {
     position: relative;
     width: 100%;
     height: 94.5%;
-
-    background-color: blue;
 }
 
 .panel-page {
