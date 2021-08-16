@@ -1,5 +1,6 @@
 window.addEventListener('load', () => {
     restoreTablet();
+    doc.getElementById(Config.defaultApp).style.opacity = '1';
     this.window.localStorage.clear();
 });
 
