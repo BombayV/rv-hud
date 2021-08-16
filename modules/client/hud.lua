@@ -4,5 +4,3 @@ function currentVoiceMode(value)
         mode = value
     })
 end
-
-exports('currentVoiceMode', voiceMode)
