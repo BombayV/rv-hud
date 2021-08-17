@@ -9,8 +9,8 @@
     <title>Custom Overall Hud</title>
 
     <!--CSS and images links-->
-    <link rel="preload" href="./fonts/KumbhSans-Regular.ttf" as="font" crossorigin="anonymous"/>
-    <link rel="preload" href="./fonts/KumbhSans-Bold.ttf" as="font" crossorigin="anonymous"/>
+    <link rel="preload" href="./fonts/KumbhSans-Regular.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./fonts/KumbhSans-Bold.ttf" as="font" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/hud.css">
     <link rel="stylesheet" href="./css/carhud.css">
     <link rel="stylesheet" href="./css/jobs.css">
@@ -62,14 +62,44 @@
                             <img>
                         </div>
                     </div>
-                    <div id="hud-page" style="background-color: red;" class="panel-page">
-
+                    <div id="hud-page" class="panel-page">
+                        <div class="page-container">
+                            <span style="margin-top: 2.5%;">Hud</span>
+                            <div class="page-subs-container">
+                                <span>Color Picker</span>
+                                <span>Type</span>
+                            </div>
+                            <div class="page-subs-container">
+                                <div class="colorpicker-container">
+                                    <input id="hud-slider" type="range" min="1" max="10" value="10" class="slider">
+                                    <input id="hud-colorpicker" type="color" class="colorpicker">
+                                </div>
+                                <select class="selector" name="hud-selector" id="hud-selector">
+                                    <option value="hud-color">Color de hud</option>
+                                    <option value="hud-background">Color de fondo</option>        
+                                    <option value="hud-border">Borde</option>
+                                    <option value="hud-shadow">Sombra</option> 
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                    <div id="carhud-page" style="background-color: yellow;" class="panel-page">
-
+                    <div id="carhud-page" class="panel-page">
+                        <div class="page-container">
+                            <span style="margin-top: 2.5%;">Carhud</span>
+                            <div class="page-subs-container">
+                                <span>Color Picker</span>
+                                <span>Type</span>
+                            </div>
+                        </div>
                     </div>
-                    <div id="jobs-page" style="background-color: blue;" class="panel-page">
-
+                    <div id="jobs-page" class="panel-page">
+                        <div class="page-container">
+                            <span style="margin-top: 2.5%;">Jobs</span>
+                            <div class="page-subs-container">
+                                <span>Color Picker</span>
+                                <span>Type</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -101,5 +131,7 @@
     <script type="text/javascript" src="./js/script.js"></script>
     <script defer src="https://kit.fontawesome.com/3828d6dd29.js" crossorigin="anonymous"></script>
 </body>
+
+</html>
 
 </html>

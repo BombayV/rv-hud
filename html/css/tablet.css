@@ -47,7 +47,6 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-
     background-color: coral;
     z-index: -1;
 }
@@ -59,7 +58,9 @@ body {
     position: relative;
 }
 
+
 /* Tablet */
+
 .ui-tablet {
     position: relative;
     width: 50%;
@@ -80,14 +81,15 @@ body {
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-
     position: absolute;
     width: 42%;
     height: 90%;
     z-index: 1;
 }
 
+
 /* Sidebar */
+
 .panel-sidebar-container {
     position: absolute;
     display: flex;
@@ -98,7 +100,6 @@ body {
     left: -20.5%;
     width: 20%;
     height: 97.8%;
-
     border-bottom-left-radius: 0.6vh;
     border-top-left-radius: 0.6vh;
     border-right: none;
@@ -127,14 +128,13 @@ body {
     font-family: defbold;
     margin-top: 25%;
     text-decoration: underline;
-    cursor:auto;
+    cursor: auto;
 }
 
 .header:hover {
     color: var(--sidebar-dark);
     text-decoration: underline;
 }
-
 
 .sidebar-square {
     position: absolute;
@@ -145,7 +145,6 @@ body {
     right: -26.7%;
     height: 7.4%;
     width: 25%;
-
     background-color: var(--border-dark);
     cursor: pointer;
 }
@@ -155,7 +154,9 @@ body {
     color: var(--sidebar-dark);
 }
 
+
 /* Header */
+
 .tablet-header-container {
     display: flex;
     justify-content: space-between;
@@ -190,7 +191,9 @@ body {
     color: var(--text-dark);
 }
 
+
 /* Panel */
+
 .tablet-panel-container {
     position: relative;
     width: 100%;
@@ -202,6 +205,21 @@ body {
     height: 100%;
     width: 100%;
     opacity: 0;
+    color: var(--text-dark);
+}
+
+.panel-page-two {
+    position: absolute;
+    opacity: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.page-subs-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-size: 3.0vh;
 }
 
 .welcome-page-container {
@@ -228,7 +246,27 @@ body {
     font-family: defbold;
 }
 
+.page-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 3.6vh;
+    text-decoration: underline;
+    font-family: defbold;
+}
+
+.colorpicker-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
 /* Darkmode */
+
 .tablet-night {
     position: absolute;
     bottom: 3%;
@@ -242,13 +280,10 @@ body {
     align-items: center;
     width: 3.5vh;
     height: 3.5vh;
-
     border-radius: 0.8vh;
     border: none;
-    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
-
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
     background-color: var(--night-dark);
-
     transition: 0.2s;
     cursor: pointer;
 }

@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
     restoreTablet();
-    doc.getElementById(Config.defaultApp).style.opacity = '1';
+    doc.getElementById(Config.defaultApp).click();
     this.window.localStorage.clear();
 });
 
@@ -22,3 +22,5 @@ const hideClassText = (className, show, color) => {
         }
     }
 }
+
+const getHex = rgb => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`

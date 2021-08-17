@@ -37,10 +37,13 @@ function openPage(id) {
     const pageContent = doc.getElementsByClassName('panel-page');
     if (target.style.opacity == '1') {
         target.style.opacity = '0';
+        target.style.display = 'none';
     } else {
         for (let i = 0; i < pageContent.length; i++) {
             pageContent[i].style.opacity = '0';
+            pageContent[i].style.display = 'none'
         }
         target.style.opacity = '1';
+        target.style.display = 'block';
     }
 }

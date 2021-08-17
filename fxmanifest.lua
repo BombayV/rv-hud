@@ -7,6 +7,8 @@ lua54 'yes'
 description 'A paid hud created for RevelationRP'
  
 version '0.0.1'
+
+shared_script '@es_extended/imports.lua'
  
 client_scripts {
     'config/config_cl.lua',
