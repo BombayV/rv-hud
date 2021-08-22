@@ -20,7 +20,7 @@
 <body>
     <!--UI Customization-->
     <div class="ui-wrapper">
-        <div style="display: none;" class="ui-container">
+        <div class="ui-container">
             <img class="ui-tablet" src="./img/tablet.png" alt="Tablet">
             <div class="ui-background"></div>
             <div class="ui-tablet-container">
@@ -80,10 +80,10 @@
                                 <div class="right-column-container">
                                     <span>Type</span>
                                     <select class="selector" name="hud-selector" id="hud-selector">
-                                        <option value="hud-color">Color de hud</option>
-                                        <option value="hud-background">Color de fondo</option>        
-                                        <option value="hud-border">Borde</option>
-                                        <option value="hud-shadow">Sombra</option> 
+                                        <option value="color">Color de hud</option>
+                                        <option value="background-color">Color de fondo</option>        
+                                        <option value="borderColor">Borde</option>
+                                        <option value="boxShadow">Sombra</option> 
                                     </select>
                                 </div>
                             </div>
@@ -124,6 +124,36 @@
                         </svg>
                     </button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Hud-->
+    <div class="hud-container">
+        <div class="block-container">
+            <div class="block-item hud-borderColor hud-boxShadow">
+                <i class="fas fa-heart hud-color"></i>
+                <div class="block-box hud-background-color"></div>
+            </div>
+            <div class="block-item hud-borderColor hud-boxShadow">
+                <i class="fas fa-shield-alt hud-color"></i>
+                <div class="block-box hud-background-color"></div>
+            </div>
+            <div class="block-item hud-borderColor hud-boxShadow">
+                <i class="fas fa-bolt hud-color"></i>
+                <div class="block-box hud-background-color"></div>
+            </div>
+            <div class="block-item hud-borderColor hud-boxShadow">
+                <i class="fas fa-pizza-slice hud-color"></i>
+                <div class="block-box hud-background-color"></div>
+            </div>
+            <div class="block-item hud-borderColor hud-boxShadow">
+                <i class="fas fa-tint hud-color"></i>
+                <div class="block-box hud-background-color"></div>
+            </div>
+            <div class="block-item hud-borderColor hud-boxShadow">
+                <i class="fas fa-brain hud-color"></i>
+                <div class="block-box hud-background-color"></div>
             </div>
         </div>
     </div>
