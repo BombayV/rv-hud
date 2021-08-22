@@ -20,7 +20,7 @@
 <body>
     <!--UI Customization-->
     <div class="ui-wrapper">
-        <div class="ui-container">
+        <div style="display: none;" class="ui-container">
             <img class="ui-tablet" src="./img/tablet.png" alt="Tablet">
             <div class="ui-background"></div>
             <div class="ui-tablet-container">
@@ -66,20 +66,26 @@
                         <div class="page-container">
                             <span style="margin-top: 2.5%;">Hud</span>
                             <div class="page-subs-container">
-                                <span>Color Picker</span>
-                                <span>Type</span>
-                            </div>
-                            <div class="page-subs-container">
-                                <div class="colorpicker-container">
-                                    <input id="hud-slider" type="range" min="1" max="10" value="10" class="slider">
-                                    <input id="hud-colorpicker" type="color" class="colorpicker">
+                                <div class="left-column-container">
+                                    <span>Color Picker</span>
+                                    <div class="colorpicker-container">
+                                        <input id="hud-slider" type="range" min="1" max="10" value="10" class="slider">
+                                        <div class="colorpicker-wrap">
+                                            <input id="hud-colorpicker" type="color" class="hidden">
+                                            <span id="hud-colorpicker-text">#ccc</span>
+                                            <input id="hud-colorpicker-visual" type="color" class="colorpicker">
+                                        </div>
+                                    </div>
                                 </div>
-                                <select class="selector" name="hud-selector" id="hud-selector">
-                                    <option value="hud-color">Color de hud</option>
-                                    <option value="hud-background">Color de fondo</option>        
-                                    <option value="hud-border">Borde</option>
-                                    <option value="hud-shadow">Sombra</option> 
-                                </select>
+                                <div class="right-column-container">
+                                    <span>Type</span>
+                                    <select class="selector" name="hud-selector" id="hud-selector">
+                                        <option value="hud-color">Color de hud</option>
+                                        <option value="hud-background">Color de fondo</option>        
+                                        <option value="hud-border">Borde</option>
+                                        <option value="hud-shadow">Sombra</option> 
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
