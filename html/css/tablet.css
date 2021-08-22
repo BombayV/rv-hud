@@ -28,6 +28,7 @@ select:focus {
     --border-dark: #777777;
     --sidebar-dark: #ebebeb;
     --hover-dark: #3082ec;
+    --button-dark: #F7F7F7;
 }
 
 .dark-mode {
@@ -40,6 +41,7 @@ select:focus {
     --border-dark: #304c70;
     --sidebar-dark: #ececec;
     --hover-dark: #3082ec;
+    --button-dark: #304c70;
 }
 
 .ui-wrapper {
@@ -290,6 +292,8 @@ select:focus {
     border: none;
     box-shadow:0 0.2vh 0.4vh rgba(0, 0, 0, 0.3), 0 0 4vh rgba(0, 0, 0, 0.1) inset;
     border: none;
+    color: var(--text-dark);
+    background-color: var(--button-dark);
 }
 
 .colorpicker-wrap {
@@ -306,7 +310,7 @@ select:focus {
     box-shadow:0 0.2vh 0.4vh rgba(0, 0, 0, 0.3), 0 0 4vh rgba(0, 0, 0, 0.1) inset;
     border: none;
     font-size: 1.5vh;
-
+    background-color: var(--button-dark);
 }
 
 .hidden {
@@ -334,6 +338,7 @@ select:focus {
 .colorpicker::-webkit-color-swatch-wrapper {
     padding: 0; 
 }
+
 .colorpicker::-webkit-color-swatch {
     border: none;
     border-radius: 50%;
