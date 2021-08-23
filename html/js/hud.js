@@ -8,8 +8,8 @@ let hudCurrSelector = 'color';
 let hudCurrClass = 'hud-color';
 let hudAlpha = '1.0';
 
-hudSlider.addEventListener('input', function() {
-    hudAlpha = this.value;
+hudSlider.addEventListener('input', e => {
+    hudAlpha = e.target.value;
     hudAlpha < 10 ? hudAlpha = `0.${hudAlpha}` : hudAlpha = '1.0';
     doc.getElementById('hud-colorpicker-text').textContent = setOpacity(doc.getElementById('hud-colorpicker').value, hudAlpha);
 })
