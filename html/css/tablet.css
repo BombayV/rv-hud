@@ -294,13 +294,14 @@ select:focus {
     background-color: var(--button-dark);
 }
 
-.colorpicker-wrap {
+.slider-wrap {
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 5%;
-    width: 90%;
+    margin-top: 7.5%;
+    width: 100%;
+    height: 100%;
     padding: 0.8vh 1.0vh 0.8vh 1.0vh;
     font-family: defbold;
     border-radius: 0.5vh;
@@ -312,8 +313,8 @@ select:focus {
 }
 
 .slider {
-    width: 75%;
-    height: 70%;
+    width: 13vh;
+    height: 1.1vh;
     -webkit-appearance: none;
     background: var(--slider-dark);
     outline: none;
@@ -328,6 +329,28 @@ select:focus {
     border-radius: 50%;
     background: var(--main-dark);
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    background-color: var(--text-dark);
+}
+
+.colorpicker-wrap {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 7.5%;
+    width: 100%;
+    padding: 0.8vh 1.0vh 0.8vh 1.0vh;
+    font-family: defbold;
+    border-radius: 0.5vh;
+    border: none;
+    box-shadow:0 0.2vh 0.4vh rgba(0, 0, 0, 0.3), 0 0 4vh rgba(0, 0, 0, 0.1) inset;
+    border: none;
+    font-size: 1.5vh;
+    background-color: var(--button-dark);
 }
 
 .hidden {
@@ -339,14 +362,15 @@ select:focus {
     overflow: hidden;
     opacity: 0;
     z-index: 5;
+    cursor: pointer;
 }
 
 .colorpicker {
     display: flex;
     justify-content: flex-end;
     border-radius: 50%;
-    height: 2.5vh;
-    width: 2.5vh;
+    height: 2.0vh;
+    width: 2.0vh;
     border: none;
     outline: none;
     -webkit-appearance: none;
