@@ -29,6 +29,7 @@ select:focus {
     --sidebar-dark: #ebebeb;
     --hover-dark: #3082ec;
     --button-dark: #F7F7F7;
+    --slider-dark: #777777;
 }
 
 .dark-mode {
@@ -42,6 +43,7 @@ select:focus {
     --sidebar-dark: #ececec;
     --hover-dark: #3082ec;
     --button-dark: #304c70;
+    --slider-dark: #2e82c7;
 }
 
 .ui-wrapper {
@@ -63,9 +65,7 @@ select:focus {
     position: relative;
 }
 
-
 /* Tablet */
-
 .ui-tablet {
     position: relative;
     width: 50%;
@@ -196,9 +196,7 @@ select:focus {
     color: var(--text-dark);
 }
 
-
 /* Panel */
-
 .tablet-panel-container {
     position: relative;
     width: 100%;
@@ -311,6 +309,25 @@ select:focus {
     border: none;
     font-size: 1.5vh;
     background-color: var(--button-dark);
+}
+
+.slider {
+    width: 75%;
+    height: 70%;
+    -webkit-appearance: none;
+    background: var(--slider-dark);
+    outline: none;
+    border-radius: 1.5vh;
+    overflow: hidden;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1.2vh;
+    height: 1.2vh;
+    border-radius: 50%;
+    background: var(--main-dark);
+    cursor: pointer;
 }
 
 .hidden {

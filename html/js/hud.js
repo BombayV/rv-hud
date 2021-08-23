@@ -11,6 +11,7 @@ let hudAlpha = '1.0';
 hudSlider.addEventListener('input', e => {
     hudAlpha = e.target.value;
     hudAlpha < 10 ? hudAlpha = `0.${hudAlpha}` : hudAlpha = '1.0';
+    doc.getElementById('hud-slider-text').textContent = hudAlpha;
     doc.getElementById('hud-colorpicker-text').textContent = setOpacity(doc.getElementById('hud-colorpicker').value, hudAlpha);
 })
 
@@ -18,7 +19,7 @@ hudSlider.addEventListener('change', e => {
     let elBlock = doc.getElementsByClassName(hudCurrClass);
     for (let i = 0; i < elBlock.length; i++) {
         if (hudCurrSelector == 'boxShadow') {
-            elBlock[i].style[hudCurrSelector] = `0 0.15vh 0.05vh 0.2vh ${doc.getElementById('hud-colorpicker').value}`
+            elBlock[i].style[hudCurrSelector] = `0 0.15vh 0.05vh 0.2vh ${setOpacity(doc.getElementById('hud-colorpicker').value, hudAlpha)}`
         } else {
             elBlock[i].style[hudCurrSelector] = setOpacity(doc.getElementById('hud-colorpicker').value, hudAlpha);
         }
@@ -47,15 +48,20 @@ function updateType(e, className, styleName) {
     let elBlock = doc.getElementsByClassName(className);
     for (let i = 0; i < elBlock.length; i++) {
         if (styleName == 'boxShadow') {
-            elBlock[i].style[styleName] = `0 0.15vh 0.05vh 0.2vh ${e.target.value}`
+            elBlock[i].style[styleName] = `0 0.15vh 0.05vh 0.2vh ${setOpacity(e.target.value, hudAlpha)}`
         } else {
             elBlock[i].style[styleName] = setOpacity(e.target.value, hudAlpha);
         }
     }
+    storeId(`hud-${styleName}`, e.target.value)
 }
 
 function updateColorPicker(e, visual, text) {
     let color = e.target.value;
     doc.getElementById(visual).value = color;
     doc.getElementById(text).textContent = setOpacity(color, hudAlpha);
+}
+
+const restoreHud = e => {
+
 }
