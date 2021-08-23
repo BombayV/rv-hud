@@ -292,6 +292,12 @@ select:focus {
     border: none;
     color: var(--text-dark);
     background-color: var(--button-dark);
+    transition: 0.3s;
+}
+
+.selector:hover {
+    transform: scale(1.025);
+    cursor: pointer;
 }
 
 .slider-wrap {
@@ -310,6 +316,12 @@ select:focus {
     border: none;
     font-size: 1.5vh;
     background-color: var(--button-dark);
+    transition: 0.3s;
+}
+
+.slider-wrap:hover {
+    transform: scale(1.025);
+    cursor: pointer;
 }
 
 .slider {
@@ -351,6 +363,12 @@ select:focus {
     border: none;
     font-size: 1.5vh;
     background-color: var(--button-dark);
+    transition: 0.3s;
+}
+
+.colorpicker-wrap:hover {
+    transform: scale(1.025);
+    cursor: pointer;
 }
 
 .hidden {
@@ -363,26 +381,31 @@ select:focus {
     opacity: 0;
     z-index: 5;
     cursor: pointer;
+    transition: 0s;
 }
 
 .colorpicker {
     display: flex;
     justify-content: flex-end;
     border-radius: 50%;
-    height: 2.0vh;
-    width: 2.0vh;
+    height: 2.2vh;
+    width: 2.2vh;
     border: none;
     outline: none;
     -webkit-appearance: none;
+    transition: 0s;
+    padding: 0;
 }
 
 .colorpicker::-webkit-color-swatch-wrapper {
-    padding: 0; 
+    padding: 0.0vh; 
+    border: none;
 }
 
 .colorpicker::-webkit-color-swatch {
-    border: none;
+    padding: 0.0vh;
     border-radius: 50%;
+    border: 0.2vh solid var(--text-dark);
 }
 
 /* Darkmode */
@@ -407,6 +430,10 @@ select:focus {
     cursor: pointer;
 }
 
+.tablet-night-btn:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
 .tablet-night-btn svg {
     width: 2vh;
     flex-shrink: 0;
