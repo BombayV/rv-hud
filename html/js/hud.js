@@ -161,8 +161,7 @@ doc.getElementById('reset-hud').addEventListener('click', e => {
     $("#hud-container").animate({ top: "0%", left: "0%" });
     localStorage.removeItem('top-hud');
     localStorage.removeItem('left-hud');
-
-    
+    hudSelector.value = hudSelector[0].value;
 })
 
 
