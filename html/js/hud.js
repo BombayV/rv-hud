@@ -1,15 +1,27 @@
 const doc = document;
 
+// Hud Main
 const hudSlider = doc.getElementById('hud-slider');
 const hudSelector = doc.getElementById('hud-selector');
 const hudElem = doc.getElementById('hud-element');
 const hudSwitch = doc.getElementById('hud-switch');
 const hudContainer = doc.getElementById('hud-container');
 
-let hudStatus = true
+// Bars
+const hudCinema = doc.getElementById('hud-bars');
+const hudCinemaSliderText = doc.getElementById('bars-slider-text');
+const hudCinemaSlider = doc.getElementById('bars-slider');
+const hudCinemaPicker = doc.getElementById('bars-colorpicker');
+
+// Position
+const hudDirection = doc.getElementById('hud-column');
+
+let hudStatus = true;
+let hudCinemaStatus = false;
 let hudCurrSelector = 'color';
 let hudCurrClass = 'hud-color';
 let hudAlpha = '1.0';
+let hudColumnStatus = false
 
 hudSlider.addEventListener('input', e => {
     hudAlpha = e.target.value;
@@ -59,6 +71,62 @@ hudSwitch.addEventListener('click', e => {
     storeId('hud-switch', hudStatus)
 })
 
+hudCinemaSlider.addEventListener('input', e => {
+    doc.getElementById('top').style.height = `${e.target.value}%`;
+    doc.getElementById('bottom').style.height = `${e.target.value}%`;
+    hudCinemaSliderText.textContent = `${parseInt(e.target.value)}%`
+})
+
+hudCinemaSlider.addEventListener('change', e => {
+    storeId('hudBarsHeight', e.target.value);
+})
+
+hudCinema.addEventListener('click', () => {
+    hudCinemaStatus = hudCinema.checked
+    if (hudCinemaStatus) {
+        doc.getElementById('top').style.animation = 'slideDown 0.3s forwards';
+        doc.getElementById('bottom').style.animation = 'slideUp 0.3s forwards';
+        doc.getElementById('hud-bars-text').textContent = 'Activo';
+        setTimeout(function() {
+            doc.getElementById('cinematic').style.animation = 'none';
+        }, 310)
+        doc.getElementById('cinematic').style.display = 'block';
+        //Hide everything
+    } else {
+        doc.getElementById('top').style.animation = 'slideBackUp 0.3s forwards';
+        doc.getElementById('bottom').style.animation = 'slideBackDown 0.3s forwards';
+        doc.getElementById('hud-bars-text').textContent = 'Inactivo';
+        setTimeout(function() {
+            doc.getElementById('cinematic').style.animation = 'none';
+            doc.getElementById('cinematic').style.display = 'none';
+        }, 310)
+        //Show everything
+    }
+    storeId('hudBarsStatus', hudCinemaStatus)
+})
+
+hudCinemaPicker.addEventListener('input', e => {
+    doc.getElementById('bars-colorpicker-text').textContent = e.target.value;
+    doc.getElementById('bars-colorpicker-visual').value = e.target.value;
+})
+
+hudCinemaPicker.addEventListener('change', e => {
+    doc.getElementById('top').style.backgroundColor = e.target.value;
+    doc.getElementById('bottom').style.backgroundColor = e.target.value;
+    storeId('hudBarsColor', e.target.value);
+})
+
+hudDirection.addEventListener('click', e => {
+    hudColumnStatus = e.target.checked;
+    if (hudColumnStatus) {
+        doc.getElementById('hud-column-text').textContent = 'Fila';
+        hudContainer.style.flexDirection = 'row';
+    } else {
+        doc.getElementById('hud-column-text').textContent = 'Columna';
+        hudContainer.style.flexDirection = 'column';
+    }
+    storeId('hudColumn', hudColumnStatus);
+})
 
 this.window.addEventListener('load', startColorpicker('hud-colorpicker', 'hud-colorpicker-visual', 'hud-colorpicker-text'), false)
 
@@ -106,6 +174,29 @@ const restoreHud = e => {
         hudContainer.style.animation = 'spin 0.5s';
         hudContainer.style.opacity = '0';
         doc.getElementById('hud-switch-text').textContent = 'Inactivo';
+    }
+
+    // Bars
+    (getId('hudBarsHeight')) != null ? (doc.getElementById('top').style.height = doc.getElementById('bottom').style.height = hudCinemaSliderText.textContent = `${getId('hudBarsHeight')}%`, hudCinemaSlider.value = getId('hudBarsHeight')) : false;
+    (getId('hudBarsColor')) != null ? (doc.getElementById('bars-colorpicker-text').textContent = doc.getElementById('bars-colorpicker-visual').value = hudCinemaPicker.value = doc.getElementById('top').style.backgroundColor = doc.getElementById('bottom').style.backgroundColor = getId('hudBarsColor')) : false;
+    (getBool('hudBarsStatus')) != null ? hudCinemaStatus = getBool('hudBarsStatus') : hudCinemaStatus;
+    hudCinema.checked = hudCinemaStatus;
+    if (hudCinemaStatus) {
+        doc.getElementById('top').style.animation = 'slideDown 0.3s forwards';
+        doc.getElementById('bottom').style.animation = 'slideUp 0.3s forwards';
+        setTimeout(function() {
+            doc.getElementById('cinematic').style.animation = 'none';
+        }, 310)
+        doc.getElementById('cinematic').style.display = 'block';
+        doc.getElementById('hud-bars-text').textContent = 'Activo';
+    }
+
+    // Position
+    (getBool('hudColumn') != null) ? hudColumnStatus = getBool('hudColumn') : hudColumnStatus;
+    hudDirection.checked = hudColumnStatus;
+    if (hudColumnStatus) {
+        doc.getElementById('hud-column-text').textContent = 'Fila';
+        hudContainer.style.flexDirection = 'row';
     }
 }
 

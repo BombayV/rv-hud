@@ -1,14 +1,62 @@
+/* Cinematic bars*/
+.top {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 10%;
+    background-color: black;
+    left: 0%;
+    z-index: 5;
+}
+  
+@keyframes slideDown {
+    0% {
+      top: -35%;
+    }
+    100% {
+      top: 0%;
+    }
+}
+  
+@keyframes slideBackUp {
+    100% {
+      top: -35%;
+    }
+}
+  
+.bottom {
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    height: 10%;
+    background-color: black;
+    left: 0%;
+    z-index: 5;
+}
+  
+@keyframes slideUp {
+    0% {
+      bottom: -35%;
+    }
+    100% {
+      bottom: 0%;
+    }
+  }
+  
+@keyframes slideBackDown {
+    100% {
+      bottom: -35%;
+    }
+}
+
 .hud-container {
     position: absolute;
     bottom: 1%;
     left: 0.5%;
     display: flex;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
     padding: 0.3vh;
-    z-index: 3;
-    transition: opacity 0.5s;
-    animation-iteration-count: 1;
 }
 
 @keyframes spin {
@@ -27,6 +75,9 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
+    z-index: 3;
+    transition: opacity 0.5s;
+    animation-iteration-count: 1;
 }
 
 .block-item {

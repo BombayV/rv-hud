@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="./css/carhud.css">
     <link rel="stylesheet" href="./css/jobs.css">
     <link rel="stylesheet" href="./css/tablet.css">
+
+    <style>  #cinematic {display: none ;}</style>
 </head>
 
 <body>
@@ -79,6 +81,16 @@
                                             <input id="hud-colorpicker-visual" type="color" class="colorpicker">
                                         </div>
                                     </div>
+                                    <span style="margin-top: 10%;">Posicion</span>
+                                    <div class="switch-wrap">
+                                        <input id="hud-drag" class="switch" type="checkbox" checked>
+                                        <span id="hud-drag-text" class="switch-slider">Activo</span>
+                                    </div>
+                                    <div class="switch-wrap">
+                                        <input id="hud-column" class="switch" type="checkbox">
+                                        <span id="hud-column-text" class="switch-slider">Columna</span>
+                                    </div>
+                                    <button class="btn">Resetear</button>
                                 </div>
                                 <div class="right-column-container">
                                     <span>Estilo</span>
@@ -91,6 +103,22 @@
                                     <div class="switch-wrap">
                                         <input id="hud-switch" class="switch" type="checkbox" checked>
                                         <span id="hud-switch-text" class="switch-slider">Activo</span>
+                                    </div>
+
+                                    <!--Black bars-->
+                                    <span style="margin-top: 10%;">Barras</span>
+                                    <div class="switch-wrap">
+                                        <input id="hud-bars" class="switch" type="checkbox">
+                                        <span id="hud-bars-text" class="switch-slider">Inactivo</span>
+                                    </div>
+                                    <div class="slider-wrap">
+                                        <span id="bars-slider-text">10%</span>
+                                        <input id="bars-slider" type="range" min="0" max="35" value="10" class="slider">
+                                    </div>
+                                    <div class="colorpicker-wrap">
+                                        <input id="bars-colorpicker" type="color" class="hidden">
+                                        <span id="bars-colorpicker-text">#000000</span>
+                                        <input id="bars-colorpicker-visual" type="color" class="colorpicker">
                                     </div>
                                 </div>
                             </div>
@@ -136,8 +164,8 @@
     </div>
 
     <!--Hud-->
-    <div id="hud-container" class="hud-container">
-        <div class="block-container">
+    <div class="hud-container">
+        <div id="hud-container" class="block-container">
             <div class="block-item hud-borderColor hud-boxShadow">
                 <i class="fas fa-heart hud-color"></i>
                 <div class="block-box hud-background-color"></div>
@@ -164,6 +192,14 @@
             </div>
         </div>
     </div>
+
+    <!--Cinematic Mode-->
+    <div id="cinematic">
+        <div class="top" id="top"></div>
+        <div class="bottom" id="bottom"></div>
+    </div>
+
+    <!--Javascript Code-->
     <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
