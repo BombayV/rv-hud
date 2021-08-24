@@ -209,6 +209,7 @@ select:focus {
     width: 100%;
     opacity: 0;
     color: var(--text-dark);
+    overflow: hidden;
 }
 
 .undo {

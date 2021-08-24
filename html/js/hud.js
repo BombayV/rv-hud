@@ -150,7 +150,7 @@ doc.getElementById('hud-drag').addEventListener('click', e => {
     storeId('hud-drag-status', hudDragStatus)
 })
 
-$('#hud-container').draggable()
+$('#hud-container').draggable({containment: "#ui-wrapper", scroll: false})
 
 $("#hud-container").on("dragstop", function(_, ui) {
     storeId('top-hud', ui.position.top);
