@@ -7,6 +7,19 @@
     flex-direction: row;
     padding: 0.3vh;
     z-index: 3;
+    transition: opacity 0.5s;
+    animation-iteration-count: 1;
+}
+
+@keyframes spin {
+    0% { 
+        transform-origin: center; 
+        transform: perspective(800px) rotateY(0deg); 
+    }
+    100% { 
+        transform-origin: center; 
+        transform: perspective(800px) rotateY(360deg); 
+    }
 }
 
 .block-container {

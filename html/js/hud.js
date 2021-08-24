@@ -3,7 +3,10 @@ const doc = document;
 const hudSlider = doc.getElementById('hud-slider');
 const hudSelector = doc.getElementById('hud-selector');
 const hudElem = doc.getElementById('hud-element');
+const hudSwitch = doc.getElementById('hud-switch');
+const hudContainer = doc.getElementById('hud-container');
 
+let hudStatus = true
 let hudCurrSelector = 'color';
 let hudCurrClass = 'hud-color';
 let hudAlpha = '1.0';
@@ -35,6 +38,27 @@ hudSelector.addEventListener('change', e => {
     doc.getElementById('hud-colorpicker-visual').value = currColor;
     doc.getElementById('hud-colorpicker-text').textContent = setOpacity(currColor, hudAlpha);
 })
+
+hudSwitch.addEventListener('click', e => {
+	hudStatus = e.target.checked;
+	if (hudStatus) {
+        setTimeout(function() {
+            hudContainer.style.animation = 'none';
+        }, 600)
+        hudContainer.style.animation = 'spin 0.5s';
+        hudContainer.style.opacity = '1';
+        doc.getElementById('hud-switch-text').textContent = 'Activo';
+	} else {
+        setTimeout(function() {
+            hudContainer.style.animation = 'none';
+        }, 600)
+        hudContainer.style.animation = 'spin 0.5s';
+        hudContainer.style.opacity = '0';
+        doc.getElementById('hud-switch-text').textContent = 'Inactivo';
+	}
+    storeId('hud-switch', hudStatus)
+})
+
 
 this.window.addEventListener('load', startColorpicker('hud-colorpicker', 'hud-colorpicker-visual', 'hud-colorpicker-text'), false)
 
@@ -73,6 +97,16 @@ const restoreHud = e => {
     (getId('hud-background-color') != null) ? (updateColors('background-color', 'hud', getId('hud-background-color'))) : false;
     (getId('hud-borderColor') != null) ? (updateColors('borderColor', 'hud', getId('hud-borderColor'))) : false;
     (getId('hud-boxShadow') != null) ? (updateColors('boxShadow', 'hud', getId('hud-boxShadow'))) : false;
+    (getBool('hud-switch') != null) ? hudStatus = getBool('hud-switch') : hudStatus;
+    hudSwitch.checked = hudStatus;
+    if (!hudStatus) {
+        setTimeout(function() {
+            hudContainer.style.animation = 'none';
+        }, 600)
+        hudContainer.style.animation = 'spin 0.5s';
+        hudContainer.style.opacity = '0';
+        doc.getElementById('hud-switch-text').textContent = 'Inactivo';
+    }
 }
 
 const updateColors = (className, type, color) => {
