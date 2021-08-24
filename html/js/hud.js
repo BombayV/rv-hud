@@ -128,6 +128,19 @@ hudDirection.addEventListener('click', e => {
     storeId('hudColumn', hudColumnStatus);
 })
 
+doc.getElementById('hud-btn-drag').addEventListener('click', () => {
+    $("#hud-container").animate({ top: "0%", left: "0%" });
+    localStorage.removeItem('top-hud');
+    localStorage.removeItem('left-hud');
+})
+
+$('#hud-container').draggable()
+
+$("#hud-container").on("dragstop", function(_, ui) {
+    storeId('top-hud', ui.position.top);
+    storeId('left-hud', ui.position.left);
+});
+
 this.window.addEventListener('load', startColorpicker('hud-colorpicker', 'hud-colorpicker-visual', 'hud-colorpicker-text'), false)
 
 this.window.addEventListener('load', function() {
@@ -198,6 +211,8 @@ const restoreHud = e => {
         doc.getElementById('hud-column-text').textContent = 'Fila';
         hudContainer.style.flexDirection = 'row';
     }
+
+    (getId('top-hud') && getId('left-hud') != null) ? $("#hud-container").animate({ top: getId('top-hud'), left: getId('left-hud')}) : false
 }
 
 const updateColors = (className, type, color) => {

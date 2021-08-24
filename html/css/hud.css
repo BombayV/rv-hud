@@ -78,6 +78,7 @@
     z-index: 3;
     transition: opacity 0.5s;
     animation-iteration-count: 1;
+    cursor: pointer;
 }
 
 .block-item {
