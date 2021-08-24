@@ -1,9 +1,3 @@
-window.addEventListener('load', () => {
-    restoreTablet();
-    doc.getElementById(Config.defaultApp).click();
-    //this.localStorage['clear']()
-});
-
 const getBool = item => JSON.parse(localStorage.getItem(item));
 
 const getId = item => localStorage.getItem(item);

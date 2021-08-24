@@ -211,6 +211,42 @@ select:focus {
     color: var(--text-dark);
 }
 
+.undo {
+    position: absolute;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--button-dark);
+    font-size: 1.7vh;
+    font-weight: 700;
+    width: 3.5vh;
+    height: 3.5vh;
+    top: 2.5%;
+    right: 1.5%;
+    border: none;
+    border-radius: 0.5vh;
+    z-index: 5;
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: var(--night-dark);
+}
+
+.undo:hover > .fa-undo {
+    animation:spin 5s linear infinite;
+}
+
+.undo:hover {
+    transform: scale(1.05);
+}
+
+@keyframes spin { 
+    0% {
+      -webkit-transform: rotate(360deg); 
+      transform:rotate(360deg); 
+    }
+}
+
 .panel-page-two {
     position: absolute;
     opacity: 1;
@@ -339,6 +375,11 @@ select:focus {
     width: 100%;
     height: 100%;
     transition: background-color 0.2s;
+}
+
+.switch-wrap:hover {
+    transform: scale(1.025);
+    cursor: pointer;
 }
 
 input:checked + .switch-slider {
@@ -470,6 +511,12 @@ input:checked + .switch-slider {
     font-size: 1.5vh;
     background-color: var(--button-dark);
     transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.025);
+    cursor: pointer;
+    background-color: var(--hover-dark);
 }
 
 /* Darkmode */

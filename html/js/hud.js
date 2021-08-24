@@ -21,8 +21,10 @@ let hudCinemaStatus = false;
 let hudCurrSelector = 'color';
 let hudCurrClass = 'hud-color';
 let hudAlpha = '1.0';
-let hudColumnStatus = false
+let hudColumnStatus = false;
+let hudDragStatus = false;
 
+// Main hud
 hudSlider.addEventListener('input', e => {
     hudAlpha = e.target.value;
     hudAlpha < 10 ? hudAlpha = `0.${hudAlpha}` : hudAlpha = '1.0';
@@ -71,6 +73,7 @@ hudSwitch.addEventListener('click', e => {
     storeId('hud-switch', hudStatus)
 })
 
+// Cinema hud
 hudCinemaSlider.addEventListener('input', e => {
     doc.getElementById('top').style.height = `${e.target.value}%`;
     doc.getElementById('bottom').style.height = `${e.target.value}%`;
@@ -116,6 +119,7 @@ hudCinemaPicker.addEventListener('change', e => {
     storeId('hudBarsColor', e.target.value);
 })
 
+// Position Hud
 hudDirection.addEventListener('click', e => {
     hudColumnStatus = e.target.checked;
     if (hudColumnStatus) {
@@ -134,6 +138,18 @@ doc.getElementById('hud-btn-drag').addEventListener('click', () => {
     localStorage.removeItem('left-hud');
 })
 
+doc.getElementById('hud-drag').addEventListener('click', e => {
+    hudDragStatus = e.target.checked;
+    if (hudDragStatus) {
+        doc.getElementById('hud-drag-text').textContent = 'Activo';
+        $("#hud-container").draggable({ disabled: true});
+    } else {
+        doc.getElementById('hud-drag-text').textContent = 'Inactivo';
+        $("#hud-container").draggable({ disabled: false});
+    }
+    storeId('hud-drag-status', hudDragStatus)
+})
+
 $('#hud-container').draggable()
 
 $("#hud-container").on("dragstop", function(_, ui) {
@@ -141,12 +157,16 @@ $("#hud-container").on("dragstop", function(_, ui) {
     storeId('left-hud', ui.position.left);
 });
 
-this.window.addEventListener('load', startColorpicker('hud-colorpicker', 'hud-colorpicker-visual', 'hud-colorpicker-text'), false)
+doc.getElementById('reset-hud').addEventListener('click', e => {
+    $("#hud-container").animate({ top: "0%", left: "0%" });
+    localStorage.removeItem('top-hud');
+    localStorage.removeItem('left-hud');
 
-this.window.addEventListener('load', function() {
-    restoreHud()
+    
 })
 
+
+// Functions
 function startColorpicker(colorpicker, visual, text) {
     doc.getElementById(visual).value = rgba2hex(getComputedStyle(doc.getElementsByClassName(hudCurrClass)[1])[hudCurrSelector]);
     doc.getElementById(colorpicker).addEventListener('change', e => updateType(e, hudCurrClass, hudCurrSelector), false);
@@ -212,7 +232,14 @@ const restoreHud = e => {
         hudContainer.style.flexDirection = 'row';
     }
 
-    (getId('top-hud') && getId('left-hud') != null) ? $("#hud-container").animate({ top: getId('top-hud'), left: getId('left-hud')}) : false
+    (getId('top-hud') && getId('left-hud') != null) ? $("#hud-container").animate({ top: getId('top-hud'), left: getId('left-hud')}) : false;
+
+    (getBool('hud-drag-status') != null) ? (hudDragStatus = getBool('hud-drag-status'), $("#hud-container").draggable({ disabled: getBool('hud-drag-status')})) : hudDragStatus;
+    doc.getElementById('hud-drag').checked = hudDragStatus;
+    if (hudDragStatus) {
+        doc.getElementById('hud-drag-text').textContent = 'Activo';
+    }
+
 }
 
 const updateColors = (className, type, color) => {
