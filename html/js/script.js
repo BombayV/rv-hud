@@ -9,12 +9,22 @@ this.window.addEventListener('load', e => {
 
     window.addEventListener('load', () => {
         window.addEventListener('message', e => {
-            switch (e.data.action) {
+            let data = e.data;
+            switch (data.action) {
                 case 'updateTime':
-                    doc.getElementById('tablet-time').textContent = e.data.time;
-                    doc.getElementById('tablet-day').textContent = e.data.day;
-                    doc.getElementById('tablet-day-text').textContent = e.data.dayText;
-                    doc.getElementById('tablet-month').textContent = e.data.month;
+                    doc.getElementById('tablet-time').textContent = data.time;
+                    doc.getElementById('tablet-day').textContent = data.day;
+                    doc.getElementById('tablet-day-text').textContent = data.dayText;
+                    doc.getElementById('tablet-month').textContent = data.month;
+                break;
+
+                case 'updateHud':
+                    doc.getElementById('hud-health').style.height = `${data.health}%`;
+                    doc.getElementById('hud-armor').style.height = `${data.armor}%`;
+                    doc.getElementById('hud-stamina').style.height = `${data.stamina}%`;
+                    doc.getElementById('hud-hunger').style.height = `${data.hunger}%`;
+                    doc.getElementById('hud-thirst').style.height = `${data.thirst}%`;
+                    doc.getElementById('hud-stress').style.height = `${data.stress}%`;
                 break;
             }
         })
