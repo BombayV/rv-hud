@@ -4,6 +4,8 @@ const getId = item => localStorage.getItem(item);
 
 const storeId = (id, item) => localStorage.setItem(id, item);
 
+const clearId = id => localStorage.removeItem(id);
+
 const hideClassText = (className, show, color) => {
     let curClass = doc.getElementsByClassName(className);
     if (show) {
@@ -15,7 +17,7 @@ const hideClassText = (className, show, color) => {
             curClass[i].style.color = 'transparent';
         }
     }
-}
+};
 
 const setOpacity = (hex, alpha) => `${hex}${Math.floor(alpha * 255).toString(16).padStart(2, 0)}`;
 
@@ -29,4 +31,4 @@ const rgba2hex = rgba => {
           ("0" + parseInt(rgba[2], 10).toString(16)).slice(-2) +
           ("0" + parseInt(rgba[3], 10).toString(16)).slice(-2)
       : "";
-}
+};

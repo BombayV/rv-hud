@@ -134,8 +134,8 @@ hudDirection.addEventListener('click', e => {
 
 doc.getElementById('hud-btn-drag').addEventListener('click', () => {
     $("#hud-container").animate({ top: "0%", left: "0%" });
-    localStorage.removeItem('top-hud');
-    localStorage.removeItem('left-hud');
+    clearId('top-hud');
+    clearId('left-hud');
 })
 
 doc.getElementById('hud-drag').addEventListener('click', e => {
@@ -159,11 +159,65 @@ $("#hud-container").on("dragstop", function(_, ui) {
 
 doc.getElementById('reset-hud').addEventListener('click', e => {
     $("#hud-container").animate({ top: "0%", left: "0%" });
-    localStorage.removeItem('top-hud');
-    localStorage.removeItem('left-hud');
     hudSelector.value = hudSelector[0].value;
-})
+    setTimeout(function() {
+        hudContainer.style.animation = 'none';
+    }, 600)
+    hudContainer.style.opacity = '1';
+    hudSwitch.checked = true;
+    doc.getElementById('hud-switch-text').textContent = 'Activo';
+    doc.getElementById('hud-column-text').textContent = 'Columna';
+    doc.getElementById('hud-column').checked = false;
+    hudContainer.style.flexDirection = 'column';
+    doc.getElementById('top').style.animation = 'slideBackUp 0.3s forwards';
+    doc.getElementById('bottom').style.animation = 'slideBackDown 0.3s forwards';
+    doc.getElementById('hud-bars-text').textContent = 'Inactivo';
+    hudCinemaSlider.value = 10;
+    hudCinemaSliderText.textContent = '10%';
+    hudCinemaPicker.value = '#000000'
+    hudCinema.checked = false
+    setTimeout(function() {
+        doc.getElementById('cinematic').style.animation = 'none';
+        doc.getElementById('cinematic').style.display = 'none';
+    }, 310)
+    doc.getElementById('bars-colorpicker-text').textContent = '#000000';
+    doc.getElementById('bars-colorpicker-visual').value = '#000000';
+    doc.getElementById('hud-drag').checked = false;
+    doc.getElementById('hud-drag-text').textContent = 'Inactivo';
+    hudSlider.value = 10;
+    doc.getElementById('hud-slider-text').textContent = '1.0';
+    doc.getElementById('hud-colorpicker-text').textContent = '#ffffffff';
+    doc.getElementById('hud-colorpicker').value = '#ffffff';
+    doc.getElementById('hud-colorpicker-visual').value = '#ffffff';
+    updateColors('background-color', 'hud', '#000000');
+    updateColors('color', 'hud', '#ffffff');
+    updateColors('borderColor', 'hud', '#ffffff');
+    updateColors('boxShadow', 'hud', '#000000');
 
+    // Set all vars to default
+    hudStatus = true;
+    hudCinemaStatus = false;
+    hudCurrSelector = 'color';
+    hudCurrClass = 'hud-color';
+    hudAlpha = '1.0';
+    hudColumnStatus = false;
+    hudDragStatus = false;
+
+    // Reset all items to default
+    clearId('hud-alpha');
+    clearId('hud-color');
+    clearId('hud-background-color');
+    clearId('hud-borderColor');
+    clearId('hud-boxShadow');
+    clearId('hud-switch');
+    clearId('top-hud');
+    clearId('left-hud');
+    clearId('hudBarsHeight');
+    clearId('hudBarsColor');
+    clearId('hudBarsStatus');
+    clearId('hudColumn');
+    clearId('hud-drag-status');
+})
 
 // Functions
 function startColorpicker(colorpicker, visual, text) {

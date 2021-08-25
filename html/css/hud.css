@@ -57,6 +57,7 @@
     justify-content: center;
     flex-direction: column;
     padding: 0.3vh;
+    animation: spin 0.5s;
 }
 
 @keyframes spin {
