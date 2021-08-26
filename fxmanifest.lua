@@ -27,5 +27,5 @@ files {
 dependency 'es_extended'
 
 exports {
-    'currentVoiceMode'
+    'EVModule.Status.Voice'
 }
