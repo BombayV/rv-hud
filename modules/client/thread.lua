@@ -10,17 +10,15 @@ AddEventHandler("esx_status:onTick", function(status)
         end
     end
     local ped = PlayerPedId()
-    local status = EVModule.Status.Hud(ped, PlayerId())
+    local hudStatus = EVModule.Status.Hud(ped, PlayerId())
+    local carStatus = EVModule.Status.Carhud(ped, GetVehiclePedIsIn(ped, false))
+    local voiceStatus = EVModule.Status.Voice()
     SendNUIMessage({
-        action = 'updateHud',
-        health = status.health,
-        armor = status.armor,
-        stamina = status.stamina,
-        hunger = hunger,
-        thirst = thirst,
-        stress = stress
+        action 'updateStatus',
+        hud = hudStatus,
+        carhud = carStatus,
+        voice = voiceStatus
     })
-    status = EVModule.Status.Carhud(ped, GetVehiclePedIsIn(ped, false))
     if EVModule.Status.Opened then
         local time = EVModule.Status.Time(GetClockMinutes(), GetClockHours(), GetClockDayOfMonth())
         SendNUIMessage({

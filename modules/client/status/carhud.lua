@@ -16,21 +16,7 @@ EVModule.Status.Carhud = function(ped, vehicle)
     }
 
 --#region Check
-    if status.entity <= 0 then
-        cV = coroutine.create(function()
-            while status.entity <= 0 do
-                print("Starting Status: "..tostring(coroutine.status(cV)))
-                status.entity = GetVehiclePedIsIn(PlayerPedId(), false) or nil
-                if status.entity ~= nil and DoesEntityExist(status.entity) then
-                    print("After Status: "..tostring(coroutine.status(cV)))
-                end
-                Wait(750)
-            end
-        end)
-        if status.entity <= 0 and coroutine.status(cV) == 'suspended' then
-            coroutine.resume(cV)
-        end
-    end
+    if status.entity <= 0 then return end
 --#endregion Check
 
 --#region Apply new status
