@@ -4,5 +4,6 @@
     ],
     "Lua.diagnostics.disable": [
         "undefined-global"
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }

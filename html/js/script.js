@@ -6,27 +6,39 @@ this.window.addEventListener('load', e => {
     // Hud
     startColorpicker('hud-colorpicker', 'hud-colorpicker-visual', 'hud-colorpicker-text')
     restoreHud()
+    window.addEventListener('message', e => {
+        switch (e.data.action) {
+            case 'updateTabletState':
+                doc.getElementById('tablet').style.opacity = '1';
+            break;
 
-    window.addEventListener('load', () => {
-        window.addEventListener('message', e => {
-            let data = e.data;
-            switch (data.action) {
-                case 'updateTime':
-                    doc.getElementById('tablet-time').textContent = data.time;
-                    doc.getElementById('tablet-day').textContent = data.day;
-                    doc.getElementById('tablet-day-text').textContent = data.dayText;
-                    doc.getElementById('tablet-month').textContent = data.month;
-                break;
+            case 'updateTime':
+                doc.getElementById('tablet-time').textContent = e.data.time;
+                doc.getElementById('tablet-day').textContent = e.data.day;
+                doc.getElementById('tablet-day-text').textContent = e.data.dayText;
+                doc.getElementById('tablet-month').textContent = e.data.month;
+            break;
 
-                case 'updateHud':
-                    doc.getElementById('hud-health').style.height = `${data.health}%`;
-                    doc.getElementById('hud-armor').style.height = `${data.armor}%`;
-                    doc.getElementById('hud-stamina').style.height = `${data.stamina}%`;
-                    doc.getElementById('hud-hunger').style.height = `${data.hunger}%`;
-                    doc.getElementById('hud-thirst').style.height = `${data.thirst}%`;
-                    doc.getElementById('hud-stress').style.height = `${data.stress}%`;
-                break;
-            }
-        })
+            case 'updateHud':
+                doc.getElementById('hud-health').style.height = `${e.data.health}%`;
+                doc.getElementById('hud-armor').style.height = `${e.data.armor}%`;
+                doc.getElementById('hud-stamina').style.height = `${e.data.stamina}%`;
+                doc.getElementById('hud-hunger').style.height = `${e.data.hunger}%`;
+                doc.getElementById('hud-thirst').style.height = `${e.data.thirst}%`;
+                doc.getElementById('hud-stress').style.height = `${e.data.stress}%`;
+            break;
+
+            case 'updateHudStamina':
+                doc.getElementById('hud-icon').classList.remove(e.data.remove);
+                doc.getElementById('hud-icon').classList.add(e.data.icon);
+            break;
+        }
     })
 })
+
+doc.onkeyup = e => {
+    if (e.key == 'Escape') {
+        fetchNUI('closeTablet')
+        doc.getElementById('tablet').style.opacity = '0';
+    }
+}

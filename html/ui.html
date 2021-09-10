@@ -16,12 +16,12 @@
     <link rel="stylesheet" href="./css/jobs.css">
     <link rel="stylesheet" href="./css/tablet.css">
 
-    <style>  #cinematic {display: none ;}</style>
+    <style>#cinematic {display: none ;}</style>
 </head>
 
 <body>
     <!--UI Customization-->
-    <div class="ui-wrapper">
+    <div id="tablet" class="ui-wrapper">
         <div class="ui-container">
             <img class="ui-tablet" src="./img/tablet.png" alt="Tablet">
             <div class="ui-background"></div>
@@ -178,7 +178,7 @@
                 <div id="hud-armor" class="block-box hud-background-color"></div>
             </div>
             <div class="block-item hud-borderColor hud-boxShadow">
-                <i class="fas fa-bolt hud-color"></i>
+                <i id="hud-icon" class="fas fa-bolt hud-color"></i>
                 <div id="hud-stamina" class="block-box hud-background-color"></div>
             </div>
             <div class="block-item hud-borderColor hud-boxShadow">
@@ -199,27 +199,14 @@
     <!--Carhud-->
     <div class="carhud-wrapper">
         <div class="carhud-container">
-            <div class="fuel-container">
-                <div class="bar-progress">
-
-                </div>
-            </div>
             <div class="dash-container">
+                <div class="progress-container">
+                    <span class="bar-progress"></span>
+                </div>
                 <div class="speed-container">
                     <span>0</span>
                     <span>0</span>
                     <span>0</span>
-                </div>
-                <div>
-
-                </div>
-                <div>
-                    
-                </div>
-            </div>
-            <div class="fuel-container">
-                <div class="bar-progress">
-
                 </div>
             </div>
         </div>

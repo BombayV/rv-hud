@@ -32,3 +32,15 @@ const rgba2hex = rgba => {
           ("0" + parseInt(rgba[3], 10).toString(16)).slice(-2)
       : "";
 };
+
+const fetchNUI = async (cbname, data) => {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8'
+        },
+        body: JSON.stringify(data)
+    };
+    const resp = await fetch(`https://rv-hud/${cbname}`, options);
+    return await resp.json();
+}

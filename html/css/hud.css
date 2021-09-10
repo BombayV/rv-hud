@@ -51,12 +51,12 @@
 
 .hud-container {
     position: absolute;
-    bottom: 1%;
-    left: 0.5%;
+    bottom: 0.5%;
+    left: 0%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 0.3vh;
+    padding: 0.1vh;
     animation: spin 0.5s;
 }
 

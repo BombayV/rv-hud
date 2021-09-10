@@ -12,14 +12,17 @@ shared_script '@es_extended/imports.lua'
  
 client_scripts {
     'config/config_cl.lua',
+    'modules/client/status/*.lua',
     'modules/client/*.lua'
 }
 
-ui_file 'html/ui.html'
+ui_page 'html/ui.html'
 
 files {
     'html/ui.html',
     'html/css/*.css',
+    'html/fonts/*.ttf',
+    'config/config_nui.js',
     'html/js/*.js',
     'html/img/*.png'
 }
