@@ -242,14 +242,14 @@ select:focus {
 }
 
 .undo:hover > .fa-undo {
-    animation:spin 5s linear infinite;
+    animation:spinRotate 5s linear infinite;
 }
 
 .undo:hover {
     transform: scale(1.05);
 }
 
-@keyframes spin { 
+@keyframes spinRotate { 
     0% {
       -webkit-transform: rotate(360deg); 
       transform:rotate(360deg); 

@@ -16,7 +16,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    flex-direction: column;
+    flex-direction: row;
     width: 85%;
     height: 80%;
     border-radius: 0.6vh;
@@ -27,21 +27,12 @@
     z-index: 5;
 }
 
-.speed-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9vh;
-    font-family: def2;
-    color: rgba(168, 168, 168, 0.9);
-}
-
 .progress-container {
     position: relative;
-    width: 70%;
-    height: 5%;
+    width: 95%;
+    height: 0.5vh;
     border-radius: 1.0vh;
-    border: 0.2vh solid white;
+    border: 0.1vh solid white;
     box-shadow: 0 0.15vh 0.05vh 0.2vh #000000;
 
     background-color: black;
@@ -49,10 +40,54 @@
 
 .bar-progress {
     position: absolute;
-    width: 100%;
-    height: 80%;
+    width: 90%;
+    height: 100%;
     bottom: 0;
 
     border-radius: 1.0vh;
     background-color: white;
+}
+
+.speed-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10.5vh;
+    letter-spacing: 0.2vh;
+    font-family: def2;
+    color: rgba(168, 168, 168, 0.9);
+}
+
+.items-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-self: flex-end;
+    width: 100%;
+    height: 100%;
+}
+
+.items-container div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    font-family: def2;
+    color: white;
+}
+
+.items-container div span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2.4vh;
+}
+
+.items-container div i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.9vh;
 }

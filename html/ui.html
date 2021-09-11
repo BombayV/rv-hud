@@ -16,12 +16,12 @@
     <link rel="stylesheet" href="./css/voice.css">
     <link rel="stylesheet" href="./css/tablet.css">
 
-    <style>#tablet, #cinematic {display: none ;}</style>
+    <style>#cinematic {display: none ;}</style>
 </head>
 
 <body>
     <!--UI Customization-->
-    <div id="tablet" class="ui-wrapper">
+    <div id="tablet" style="opacity: 1;"class="ui-wrapper">
         <div class="ui-container">
             <img class="ui-tablet" src="./img/tablet.png" alt="Tablet">
             <div class="ui-background"></div>
@@ -199,13 +199,29 @@
     <!--Carhud-->
     <div class="carhud-container">
         <div class="dash-container">
-            <div class="progress-container">
-                <span class="bar-progress"></span>
+            <div style="margin-top: 2.5%; margin-left: 5%; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
+                <div class="progress-container">
+                    <span class="bar-progress"></span>
+                </div>
+                <div class="speed-container">
+                    <span>0</span>
+                    <span>0</span>
+                    <span>0</span>
+                </div>
             </div>
-            <div class="speed-container">
-                <span>0</span>
-                <span>0</span>
-                <span>0</span>
+            <div class="items-container">
+                <div>
+                    <span>N</span>
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <div>
+                    <span>60</span>
+                    <i class="fas fa-gas-pump"></i>
+                </div>
+                <div>
+                    <span>100</span>
+                    <i class="fas fa-car-crash"></i>
+                </div>
             </div>
         </div>
     </div>
