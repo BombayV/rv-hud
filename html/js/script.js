@@ -1,4 +1,4 @@
-this.window.addEventListener('load', e => {
+this.window.addEventListener('load', () => {
     // Tablet
     restoreTablet();
     doc.getElementById(Config.defaultApp).click();
@@ -20,12 +20,22 @@ this.window.addEventListener('load', e => {
             break;
 
             case 'updateHud':
-                doc.getElementById('hud-health').style.height = `${e.data.health}%`;
-                doc.getElementById('hud-armor').style.height = `${e.data.armor}%`;
-                doc.getElementById('hud-stamina').style.height = `${e.data.stamina}%`;
-                doc.getElementById('hud-hunger').style.height = `${e.data.hunger}%`;
-                doc.getElementById('hud-thirst').style.height = `${e.data.thirst}%`;
-                doc.getElementById('hud-stress').style.height = `${e.data.stress}%`;
+                // Hud
+                let hud = e.data.hud
+                doc.getElementById('hud-health').style.height = `${hud.health}%`;
+                doc.getElementById('hud-armor').style.height = `${hud.armor}%`;
+                doc.getElementById('hud-stamina').style.height = `${hud.stamina}%`;
+                doc.getElementById('hud-hunger').style.height = `${hud.hunger}%`;
+                doc.getElementById('hud-thirst').style.height = `${hud.thirst}%`;
+                doc.getElementById('hud-stress').style.height = `${hud.stress}%`;
+
+                // Carhud
+                let carhud = e.data.carhud
+                console.log(carhud.speed)
+
+                // Voice
+                let voice = e.data.voice
+                
             break;
 
             case 'updateHudStamina':

@@ -7,9 +7,9 @@ AddEventHandler("esx_status:onTick", function(status)
     local voiceStatus = EVModule.Status.Voice()
     SendNUIMessage({
         action 'updateStatus',
-        hudStatus = hudStatus,
-        carhudStatus = carStatus,
-        voiceStatus = voiceStatus
+        hud = hudStatus,
+        carhud = carStatus,
+        voice = voiceStatus
     })
     if EVModule.Status.Opened then
         local time = EVModule.Status.Time(GetClockMinutes(), GetClockHours(), GetClockDayOfMonth())

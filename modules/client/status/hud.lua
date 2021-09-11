@@ -38,7 +38,6 @@ EVModule.Status.Hud = function(ped, player, currentStatus)
         end
         status.stamina =  math.floor((100 - GetPlayerSprintStaminaRemaining(player))) or 100
     end
-    
     for _, v in pairs(currentStatus) do
         status.hunger = v.name == 'hunger' and v.percent or 100
         status.thirst = v.name == 'thirst' and v.percent or 100
