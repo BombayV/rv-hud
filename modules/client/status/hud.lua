@@ -3,11 +3,16 @@ EVModule.Status.Stamina = false
 ---Returns all the player status data in a table
 ---@param ped any
 ---@param player number
-EVModule.Status.Hud = function(ped, player)
+---@param currentStatus table
+---@return table
+EVModule.Status.Hud = function(ped, player, currentStatus)
     local status = {
         health = 100,
         armor = 0,
-        stamina = 100
+        stamina = 100,
+        hunger = 100,
+        thirst = 100,
+        stress = 0
     }
     --#region Set return status to actual data
     status.health = (GetEntityHealth(ped) - 100) or 100
@@ -32,6 +37,12 @@ EVModule.Status.Hud = function(ped, player)
             EVModule.Status.Stamina = false
         end
         status.stamina =  math.floor((100 - GetPlayerSprintStaminaRemaining(player))) or 100
+    end
+    
+    for _, v in pairs(currentStatus) do
+        status.hunger = v.name == 'hunger' and v.percent or 100
+        status.thirst = v.name == 'thirst' and v.percent or 100
+        status.stress = v.name == 'stress' and v.percent or 0
     end
     --#endregion
     return status

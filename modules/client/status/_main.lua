@@ -22,7 +22,7 @@ RegisterCommand('panelHud', function()
 	if not EVModule.Status.Opened then
 		EVModule.Status.Opened = true
 		SendNUIMessage({action = 'updateTabletState'})
-		SetNuiFocus(true, true)
+		SetNuiFocus(EVModule.Status.Opened, EVModule.Status.Opened)
 	end
 end)
 
@@ -30,7 +30,7 @@ end)
 RegisterNUICallback('closeTablet', function(_, cb)
     if EVModule.Status.Opened then
         EVModule.Status.Opened = false
-		SetNuiFocus(false, false)
+		SetNuiFocus(EVModule.Status.Opened, EVModule.Status.Opened)
     end
     cb({})
 end)
