@@ -292,7 +292,15 @@ const restoreHud = e => {
     if (hudDragStatus) {
         doc.getElementById('hud-drag-text').textContent = 'Activo';
     }
+}
 
+function updateHud(status) {
+    doc.getElementById('hud-health').style.height = `${status.health}%`;
+    doc.getElementById('hud-armor').style.height = `${status.armor}%`;
+    doc.getElementById('hud-stamina').style.height = `${status.stamina}%`;
+    doc.getElementById('hud-hunger').style.height = `${status.hunger}%`;
+    doc.getElementById('hud-thirst').style.height = `${status.thirst}%`;
+    doc.getElementById('hud-stress').style.height = `${status.stress}%`;  
 }
 
 const updateColors = (className, type, color) => {

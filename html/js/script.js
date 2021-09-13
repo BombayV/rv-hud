@@ -21,20 +21,18 @@ this.window.addEventListener('load', () => {
 
             case 'updateHud':
                 // Hud
-                let hud = e.data.hud
-                doc.getElementById('hud-health').style.height = `${hud.health}%`;
-                doc.getElementById('hud-armor').style.height = `${hud.armor}%`;
-                doc.getElementById('hud-stamina').style.height = `${hud.stamina}%`;
-                doc.getElementById('hud-hunger').style.height = `${hud.hunger}%`;
-                doc.getElementById('hud-thirst').style.height = `${hud.thirst}%`;
-                doc.getElementById('hud-stress').style.height = `${hud.stress}%`;
+                let hud = e.data.hud;
+                let carhud = e.data.carhud;
+                let voice = e.data.voice;
+                updateHud(hud);
+                updateCarhud(carhud);
+                updateVoice(voice);
 
                 // Carhud
-                let carhud = e.data.carhud
                 console.log(carhud.speed)
 
                 // Voice
-                let voice = e.data.voice
+
                 
             break;
 
