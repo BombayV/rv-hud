@@ -58,6 +58,7 @@
     flex-direction: column;
     padding: 0.1vh;
     animation: spin 0.5s;
+    user-select: none;
 }
 
 @keyframes spin {

@@ -21,7 +21,7 @@
 
 <body>
     <!--UI Customization-->
-    <div id="tablet" style="opacity: 1;"class="ui-wrapper">
+    <div id="tablet" class="ui-wrapper">
         <div class="ui-container">
             <img class="ui-tablet" src="./img/tablet.png" alt="Tablet">
             <div class="ui-background"></div>
@@ -198,31 +198,22 @@
 
     <!--Carhud-->
     <div class="carhud-container">
+        <div class="dash-small-container">
+            <i class="fas fa-gas-pump"></i>
+            <span>100</span>
+        </div>
         <div class="dash-container">
-            <div style="margin-top: 2.5%; margin-left: 5%; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
-                <div class="progress-container">
-                    <span class="bar-progress"></span>
-                </div>
-                <div class="speed-container">
-                    <span>0</span>
-                    <span>0</span>
-                    <span>0</span>
-                </div>
+            <span style="margin-top: 2.5%;">10000</span>
+            <div class="speed-container">
+                <span id="speed-three">0</span>
+                <span id="speed-two">0</span>
+                <span id="speed-one">0</span>
             </div>
-            <div class="items-container">
-                <div>
-                    <span>N</span>
-                    <i class="fas fa-tachometer-alt"></i>
-                </div>
-                <div>
-                    <span>60</span>
-                    <i class="fas fa-gas-pump"></i>
-                </div>
-                <div>
-                    <span>100</span>
-                    <i class="fas fa-car-crash"></i>
-                </div>
-            </div>
+            <span style="margin-bottom: 2.5%;">N</span>
+        </div>
+        <div class="dash-small-container">
+            <i class="fas fa-car-crash"></i>
+            <span>100</span>
         </div>
     </div>
 

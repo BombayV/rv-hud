@@ -63,7 +63,8 @@ select:focus {
     height: 100%;
     z-index: -1;
     transition: 0.3s;
-    opacity: 0;
+    opacity: 1;
+    user-select: none;
 }
 
 .ui-container {
