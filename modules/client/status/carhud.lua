@@ -5,7 +5,12 @@
 EVModule.Status.Carhud = function(ped, vehicle)
     local status = {
         entity = vehicle,
-        speed = 0,
+        speed = {
+            total = 0,
+            one = 0,
+            two = 0,
+            three = 0
+        },
         rpm = 0,
         fuel = 0,
         gear = 0,
@@ -21,7 +26,10 @@ EVModule.Status.Carhud = function(ped, vehicle)
 
 --#region Apply new status
     if status.entity > 0 then
-        status.speed = (math.floor(GetEntitySpeed(status.entity)) * 3.6) or 0
+        status.speed.total = (math.floor(GetEntitySpeed(status.entity)) * 3.6) or 0
+        status.speed.one = tostring(status.speed.total):sub(3) or 0
+        status.speed.two = tostring(status.speed.total):sub(2, 2) or 0
+        status.speed.three = tostring(status.speed.total):sub(1, 1) or 0
         status.rpm = (math.floor(GetVehicleCurrentRpm(status.entity) * 10000)) or 2000
         status.gear = GetVehicleCurrentGear(status.entity) or 0
         status.damage = (math.floor(GetVehicleEngineHealth(status.entity)) / 10) or 100
