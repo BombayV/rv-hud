@@ -1,7 +1,7 @@
 const sidebar = doc.getElementById('sidebar');
 const hudIndex = doc.getElementById('hud-index');
 const carhudIndex = doc.getElementById('carhud-index');
-const jobsIndex = doc.getElementById('jobs-index');
+const voiceIndex = doc.getElementById('voice-index');
 
 let currentMode = false;
 let barStatus = true;
@@ -21,7 +21,7 @@ hudIndex.addEventListener('click', () => openPage('hud-page'));
 
 carhudIndex.addEventListener('click', () => openPage('carhud-page'))
 
-jobsIndex.addEventListener('click', () => openPage('jobs-page'))
+voiceIndex.addEventListener('click', () => openPage('jobs-page'))
 
 const restoreTablet = () => {
     // Darkmode

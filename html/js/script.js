@@ -6,6 +6,9 @@ this.window.addEventListener('load', () => {
     // Hud
     startColorpicker('hud-colorpicker', 'hud-colorpicker-visual', 'hud-colorpicker-text')
     restoreHud()
+
+    // Carhud
+    
     window.addEventListener('message', e => {
         switch (e.data.action) {
             case 'updateTabletState':
@@ -20,20 +23,12 @@ this.window.addEventListener('load', () => {
             break;
 
             case 'updateHud':
-                // Hud
                 let hud = e.data.hud;
                 let carhud = e.data.carhud;
                 let voice = e.data.voice;
                 updateHud(hud);
                 updateCarhud(carhud);
                 updateVoice(voice);
-
-                // Carhud
-                console.log(carhud.speed)
-
-                // Voice
-
-                
             break;
 
             case 'updateHudStamina':
