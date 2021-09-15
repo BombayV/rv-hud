@@ -5,7 +5,7 @@ EVModule.Status.Stamina = false
 ---@param player number
 ---@param currentStatus table
 ---@return table
-EVModule.Status.Hud = function(ped, player, currentStatus)
+EVModule.Status.Hud  = function(ped, player, currentStatus)
     local status = {
         health = 100,
         armor = 0,
@@ -39,9 +39,9 @@ EVModule.Status.Hud = function(ped, player, currentStatus)
         status.stamina =  math.floor((100 - GetPlayerSprintStaminaRemaining(player))) or 100
     end
     for _, v in pairs(currentStatus) do
-        status.hunger = v.name == 'hunger' and v.percent or 100
-        status.thirst = v.name == 'thirst' and v.percent or 100
-        status.stress = v.name == 'stress' and v.percent or 0
+        status.hunger = v.name == 'hunger' and math.ceil(v.percent) or 100
+        status.thirst = v.name == 'thirst' and math.ceil(v.percent) or 100
+        status.stress = v.name == 'stress' and math.ceil(v.percent) or 0
     end
     --#endregion
     return status

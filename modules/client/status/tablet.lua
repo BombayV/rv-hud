@@ -1,5 +1,5 @@
 ---Get day in text form
----@returns string
+---@return string
 local function getDayText()
     local allDays = {'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'}
     local dayNum = GetClockDayOfWeek()

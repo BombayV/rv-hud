@@ -33,6 +33,7 @@
     box-shadow: 0 0.15vh 0.05vh 0.2vh #000000;
 
     background-color: black;
+    animation: spin 0.5s;
 }
 
 .voice-box {
@@ -46,6 +47,7 @@
     box-shadow: 0 0.15vh 0.05vh 0.2vh #000000;
 
     background-color: black;
+    animation: spin 0.5s;
 }
 
 .voice-box i {

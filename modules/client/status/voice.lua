@@ -3,9 +3,9 @@
 EVModule.Status.Voice = function()
     local status = {
         modeStatus = 2,
+        frequencyStatus = 1,
         mutedStatus = false,
-        radioStatus = false,
-        frequencyStatus = false
+        radioStatus = false
     }
     status.modeStatus = exports['pma-voice']:VoiceStatus().mode or 2
     status.mutedStatus = exports['pma-voice'].VoiceStatus().mutedStatus or false

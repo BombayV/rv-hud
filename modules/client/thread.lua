@@ -1,5 +1,3 @@
-local Wait = Wait
-
 AddEventHandler("esx_status:onTick", function(status)
     local ped = PlayerPedId()
     local hudStatus = EVModule.Status.Hud(ped, PlayerId(), status)
