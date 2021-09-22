@@ -39,9 +39,9 @@ EVModule.Status.Hud  = function(ped, player, currentStatus)
         status.stamina =  math.floor((100 - GetPlayerSprintStaminaRemaining(player))) or 100
     end
     for _, v in pairs(currentStatus) do
-        status.hunger = v.name == 'hunger' and math.ceil(v.percent) or 100
-        status.thirst = v.name == 'thirst' and math.ceil(v.percent) or 100
-        status.stress = v.name == 'stress' and math.ceil(v.percent) or 0
+        if v.name == 'hunger' then status.hunger = math.ceil(v.percent) or 100 end
+        if v.name == 'thirst' then status.thirst = math.ceil(v.percent) or 100 end
+        if v.name == 'stress' then status.stress = math.ceil(v.percent) or 0 end
     end
     --#endregion
     return status

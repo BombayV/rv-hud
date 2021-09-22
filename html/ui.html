@@ -197,7 +197,7 @@
     </div>
 
     <!--Carhud-->
-    <div class="carhud-container">
+    <div id="carhud" class="carhud-container">
         <div class="dash-small-container">
             <i class="fas fa-gas-pump"></i>
             <span id="carhud-fuel">100</span>
@@ -205,11 +205,11 @@
         <div class="dash-container">
             <span id="carhud-rpm" style="margin-top: 2.5%;">10000</span>
             <div class="speed-container">
-                <span id="speed-three">0</span>
-                <span id="speed-two">0</span>
-                <span id="speed-one">0</span>
+                <span style="order: 1;" id="speed-one">0</span>
+                <span style="order: 2;" id="speed-two">0</span>
+                <span style="order: 3;" id="speed-three">0</span>
             </div>
-            <span style="margin-bottom: 2.5%;">N</span>
+            <span id="carhud-gear" style="margin-bottom: 2.5%;">N</span>
         </div>
         <div class="dash-small-container">
             <i class="fas fa-car-crash"></i>

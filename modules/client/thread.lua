@@ -3,7 +3,6 @@ AddEventHandler("esx_status:onTick", function(status)
     local hudStatus = EVModule.Status.Hud(ped, PlayerId(), status)
     local carStatus = EVModule.Status.Carhud(ped, GetVehiclePedIsIn(ped, false))
     local voiceStatus = EVModule.Status.Voice()
-    print(voiceStatus.mutedStatus)
     SendNUIMessage({
         action = 'updateStatus',
         hud = hudStatus,
