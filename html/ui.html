@@ -69,10 +69,10 @@
                             <i class="fas fa-undo"></i>
                         </button>
                         <div class="page-container">
-                            <span style="margin-top: 2.5%; margin-bottom: 2.5%;">HUD</span>
+                            <span style="margin-top: 2.5%;">HUD</span>
                             <div class="page-subs-container">
                                 <div class="left-column-container">
-                                    <span>Color</span>
+                                    <span style="margin-top: 20%;">Color</span>
                                     <div class="colorpicker-container">
                                         <div class="slider-wrap">
                                             <span id="hud-slider-text">1.0</span>
@@ -84,7 +84,7 @@
                                             <input id="hud-colorpicker-visual" type="color" class="colorpicker">
                                         </div>
                                     </div>
-                                    <span style="margin-top: 10%;">Posicion</span>
+                                    <span style="margin-top: 20%;">Posicion</span>
                                     <div class="switch-wrap">
                                         <input id="hud-drag" class="switch" type="checkbox">
                                         <span id="hud-drag-text" class="switch-slider">Inactivo</span>
@@ -96,7 +96,7 @@
                                     <button id="hud-btn-drag" class="btn">Resetear</button>
                                 </div>
                                 <div class="right-column-container">
-                                    <span>Estilo</span>
+                                    <span style="margin-top: 20%;">Estilo</span>
                                     <select class="selector" name="hud-selector" id="hud-selector">
                                         <option value="color">Color de hud</option>
                                         <option value="background-color">Color de fondo</option>        
@@ -109,7 +109,7 @@
                                     </div>
 
                                     <!--Black bars-->
-                                    <span style="margin-top: 10%;">Barras</span>
+                                    <span style="margin-top: 20%;">Barras</span>
                                     <div class="switch-wrap">
                                         <input id="hud-bars" class="switch" type="checkbox">
                                         <span id="hud-bars-text" class="switch-slider">Inactivo</span>
@@ -137,11 +137,67 @@
                         </div>
                     </div>
                     <div id="jobs-page" class="panel-page">
+                        <button id="reset-hud" aria-label="undo" class="undo">
+                            <i class="fas fa-undo"></i>
+                        </button>
                         <div class="page-container">
-                            <span style="margin-top: 2.5%;">Jobs</span>
+                            <span style="margin-top: 2.5%;">VOZ</span>
                             <div class="page-subs-container">
-                                <span>Color Picker</span>
-                                <span>Type</span>
+                                <div class="page-subs-container">
+                                    <div class="left-column-container">
+                                        <span style="margin-top: 20%;">Color</span>
+                                        <div class="colorpicker-container">
+                                            <div class="slider-wrap">
+                                                <span id="voice-slider-text">1.0</span>
+                                                <input id="voice-slider" type="range" min="0" max="10" value="10" class="slider">
+                                            </div>
+                                            <div class="colorpicker-wrap">
+                                                <input id="voice-colorpicker" type="color" class="hidden">
+                                                <span id="voice-colorpicker-text">#ffffffff</span>
+                                                <input id="voice-colorpicker-visual" type="color" class="colorpicker">
+                                            </div>
+                                        </div>
+                                        <span style="margin-top: 20%;">Posicion</span>
+                                        <div class="switch-wrap">
+                                            <input id="hud-drag" class="switch" type="checkbox">
+                                            <span id="hud-drag-text" class="switch-slider">Inactivo</span>
+                                        </div>
+                                        <div class="switch-wrap">
+                                            <input id="hud-column" class="switch" type="checkbox">
+                                            <span id="hud-column-text" class="switch-slider">Solo Visual</span>
+                                        </div>
+                                        <button id="hud-btn-drag" class="btn">Resetear</button>
+                                    </div>
+                                    <div class="right-column-container">
+                                        <span style="margin-top: 20%;">Estilo</span>
+                                        <select class="selector" name="hud-selector" id="hud-selector">
+                                            <option value="color">Color de hud</option>
+                                            <option value="background-color">Color de fondo</option>        
+                                            <option value="borderColor">Borde</option>
+                                            <option value="boxShadow">Sombra</option> 
+                                        </select>
+                                        <div class="switch-wrap">
+                                            <input id="hud-switch" class="switch" type="checkbox" checked>
+                                            <span id="hud-switch-text" class="switch-slider">Activo</span>
+                                        </div>
+    
+                                        <!--Talking Increase-->
+                                        <span style="margin-top: 20%;">Activo</span>
+                                        <div class="slider-wrap">
+                                            <span id="talking-slider-text">30%</span>
+                                            <input id="talking-slider" type="range" min="25" max="45" value="30" class="slider">
+                                        </div>
+                                        <div class="slider-wrap">
+                                            <span id="talking-slider-text-alpha">1.0</span>
+                                            <input id="talking-slider-alpha" type="range" min="0" max="10" value="10" class="slider">
+                                        </div>
+                                        <div class="colorpicker-wrap">
+                                            <input id="talking-colorpicker" type="color" class="hidden">
+                                            <span id="talking-colorpicker-text">#000000</span>
+                                            <input id="talking-colorpicker-visual" type="color" class="colorpicker">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

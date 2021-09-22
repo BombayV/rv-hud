@@ -38,6 +38,8 @@ function openPage(id) {
     if (target.style.opacity == '1') {
         target.style.opacity = '0';
         target.style.display = 'none';
+        doc.getElementById('welcome-page').style.display = 'flex';
+        doc.getElementById('welcome-page').style.opacity = '1';
     } else {
         for (let i = 0; i < pageContent.length; i++) {
             pageContent[i].style.opacity = '0';
@@ -45,5 +47,9 @@ function openPage(id) {
         }
         target.style.opacity = '1';
         target.style.display = 'block';
+        if (doc.getElementById('welcome=page').style.opacity == '1') {
+            doc.getElementById('welcome-page').style.display = 'none';
+            doc.getElementById('welcome-page').style.opacity = '0';
+        }
     }
 }

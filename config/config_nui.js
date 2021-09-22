@@ -1,2 +1,2 @@
 Config = {}
-Config.defaultApp = 'hud-index'; // type-index or welcone-page
+Config.defaultApp = 'voice-index'; // type-index or welcome-page
