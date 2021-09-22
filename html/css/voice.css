@@ -29,11 +29,10 @@
     height: 3.2vh;
     margin-right: 7.5%;
     font-size: 1.5vh;
-    border: 0.3vh solid white;
+    border: 0.2vh solid white;
     box-shadow: 0 0.15vh 0.05vh 0.2vh #000000;
 
     background-color: black;
-    animation: spin 0.5s;
 }
 
 .voice-box {
@@ -43,11 +42,11 @@
     width: 3.2vh;
     height: 3.2vh;
     border-radius: 0.4vh;
-    border: 0.3vh solid white;
+    border: 0.2vh solid white;
     box-shadow: 0 0.15vh 0.05vh 0.2vh #000000;
 
     background-color: black;
-    animation: spin 0.5s;
+    transition: 0.2s;
 }
 
 .voice-box i {

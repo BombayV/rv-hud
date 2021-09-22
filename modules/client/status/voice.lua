@@ -5,11 +5,13 @@ EVModule.Status.Voice = function()
         modeStatus = 2,
         frequencyStatus = 1,
         mutedStatus = false,
-        radioStatus = false
+        radioStatus = false,
+        isTalking = false
     }
     status.modeStatus = exports['pma-voice']:VoiceStatus().mode or 2
-    status.mutedStatus = exports['pma-voice'].VoiceStatus().mutedStatus or false
+    status.mutedStatus = exports['pma-voice'].VoiceStatus().muted or false
     status.radioStatus = exports['rp-radio']:IsRadioOn() or false
     status.frequencyStatus = exports['rp-radio']:CurrentFrequency() or 1
+    status.isTalking = NetworkIsPlayerTalking(PlayerId())
     return status
 end

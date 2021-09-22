@@ -22,7 +22,7 @@ this.window.addEventListener('load', () => {
                 doc.getElementById('tablet-month').textContent = e.data.month;
             break;
 
-            case 'updateHud':
+            case 'updateStatus':
                 let hud = e.data.hud;
                 let carhud = e.data.carhud;
                 let voice = e.data.voice;
