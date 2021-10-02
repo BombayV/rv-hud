@@ -24,16 +24,19 @@ this.window.addEventListener('load', () => {
 
             case 'updateStatus':
                 let hud = e.data.hud;
-                let carhud = e.data.carhud;
                 let voice = e.data.voice;
                 updateHud(hud);
-                updateCarhud(carhud);
                 updateVoice(voice);
             break;
 
             case 'updateHudStamina':
                 doc.getElementById('hud-icon').classList.remove(e.data.remove);
                 doc.getElementById('hud-icon').classList.add(e.data.icon);
+            break;
+
+            case 'updateCarhud':
+                let carhud = e.data.carhud;
+                updateCarhud(carhud);
             break;
         }
     })

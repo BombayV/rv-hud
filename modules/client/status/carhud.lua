@@ -15,7 +15,7 @@ EVModule.Status.Carhud = function(ped, vehicle)
     }
 
 --#region Check
-    if status.entity <= 0 then return end
+    if status.entity <= 0 then return false end
 --#endregion Check
 
 --#region Apply new status
@@ -36,7 +36,7 @@ EVModule.Status.Carhud = function(ped, vehicle)
         else
             status.fuel = "bike"
         end
-        
+
         status.damage = math.floor((GetVehicleEngineHealth(status.entity) / 10)) or 100
         if status.damage < 0 then
             status.damage = 0

@@ -63,7 +63,7 @@ select:focus {
     height: 100%;
     z-index: -1;
     transition: 0.3s;
-    opacity: 1;
+    opacity: 0;
     user-select: none;
 }
 

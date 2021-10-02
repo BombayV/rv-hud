@@ -47,7 +47,7 @@ function openPage(id) {
         }
         target.style.opacity = '1';
         target.style.display = 'block';
-        if (doc.getElementById('welcome=page').style.opacity == '1') {
+        if (doc.getElementById('welcome-page').style.opacity == '1') {
             doc.getElementById('welcome-page').style.display = 'none';
             doc.getElementById('welcome-page').style.opacity = '0';
         }
