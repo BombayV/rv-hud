@@ -20,12 +20,20 @@ AddEventHandler("esx_status:onTick", function(status)
 end)
 
 CreateThread(function()
+    local sleep = 250
     while true do
         local ped = PlayerPedId()
         local carhud = EVModule.Status.Carhud(ped, GetVehiclePedIsIn(ped, false))
         if carhud then
+            if sleep ~= 250 then
+                sleep = 250
+            end
             SendNUIMessage({action = 'updateCarhud', carhud = carhud})
+        elseif not carhud and sleep ~= 500 then
+            SendNUIMessage({action = 'updateCarhud', carhud = carhud})
+            sleep = 500
         end
-        Wait(250)
+        print(sleep)
+        Wait(sleep)
     end
 end)
