@@ -33,7 +33,6 @@ CreateThread(function()
             SendNUIMessage({action = 'updateCarhud', carhud = carhud})
             sleep = 500
         end
-        print(sleep)
         Wait(sleep)
     end
 end)

@@ -4,7 +4,7 @@ let carhudStatus = false;
 
 function updateCarhud(status) {
     if (status) {
-        if (status.class != 13) {
+        if (status.class !== 13) {
             if (!carhudStatus) {
                 carhudStatus = true;
                 carhud.style.display = 'flex';
@@ -14,7 +14,7 @@ function updateCarhud(status) {
             doc.getElementById('carhud-fuel').textContent = status.fuel;
             doc.getElementById('carhud-damage').textContent = status.damage;
             let speed = status.speed;
-            if (speed == 0) {
+            if (speed === 0) {
                 doc.getElementById('carhud-speed').textContent = '000';
             } else if (speed > 0 && speed < 10) {
                 doc.getElementById('carhud-speed').textContent = `00${status.speed}`;
