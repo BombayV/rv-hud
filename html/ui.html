@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="./css/tablet.css">
 
     <style>#cinematic {display: none ;}</style>
+    <script src="js/voice.js"></script>
 </head>
 
 <body>
@@ -116,12 +117,12 @@
                                     </div>
                                     <div class="slider-wrap">
                                         <span id="bars-slider-text">10%</span>
-                                        <input id="bars-slider" type="range" min="0" max="35" value="10" class="slider">
+                                        <label for="bars-slider"></label><input id="bars-slider" type="range" min="0" max="35" value="10" class="slider">
                                     </div>
                                     <div class="colorpicker-wrap">
-                                        <input id="bars-colorpicker" type="color" class="hidden">
+                                        <label for="bars-colorpicker"></label><input id="bars-colorpicker" type="color" class="hidden">
                                         <span id="bars-colorpicker-text">#000000</span>
-                                        <input id="bars-colorpicker-visual" type="color" class="colorpicker">
+                                        <label for="bars-colorpicker-visual"></label><input id="bars-colorpicker-visual" type="color" class="colorpicker">
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +138,7 @@
                         </div>
                     </div>
                     <div id="jobs-page" class="panel-page">
-                        <button id="reset-hud" aria-label="undo" class="undo">
+                        <button id="reset-voice" aria-label="undo" class="undo">
                             <i class="fas fa-undo"></i>
                         </button>
                         <div class="page-container">
@@ -159,26 +160,26 @@
                                         </div>
                                         <span style="margin-top: 20%;">Posicion</span>
                                         <div class="switch-wrap">
-                                            <input id="hud-drag" class="switch" type="checkbox">
-                                            <span id="hud-drag-text" class="switch-slider">Inactivo</span>
+                                            <input id="voice-drag" class="switch" type="checkbox">
+                                            <span id="voice-drag-text" class="switch-slider">Inactivo</span>
                                         </div>
                                         <div class="switch-wrap">
-                                            <input id="hud-column" class="switch" type="checkbox">
-                                            <span id="hud-column-text" class="switch-slider">Solo Visual</span>
+                                            <input id="voice-column" class="switch" type="checkbox">
+                                            <span id="voice-column-text" class="switch-slider">Solo Visual</span>
                                         </div>
-                                        <button id="hud-btn-drag" class="btn">Resetear</button>
+                                        <button id="voice-btn-drag" class="btn">Resetear</button>
                                     </div>
                                     <div class="right-column-container">
                                         <span style="margin-top: 20%;">Estilo</span>
-                                        <select class="selector" name="hud-selector" id="hud-selector">
+                                        <select class="selector" name="hud-selector" id="voice-selector">
                                             <option value="color">Color de hud</option>
                                             <option value="background-color">Color de fondo</option>        
                                             <option value="borderColor">Borde</option>
                                             <option value="boxShadow">Sombra</option> 
                                         </select>
                                         <div class="switch-wrap">
-                                            <input id="hud-switch" class="switch" type="checkbox" checked>
-                                            <span id="hud-switch-text" class="switch-slider">Activo</span>
+                                            <input id="voice-switch" class="switch" type="checkbox" checked>
+                                            <span id="voice-switch-text" class="switch-slider">Activo</span>
                                         </div>
     
                                         <!--Talking Increase-->
@@ -311,7 +312,5 @@
     <script type="text/javascript" src="./js/script.js"></script>
     <script defer src="https://kit.fontawesome.com/3828d6dd29.js" crossorigin="anonymous"></script>
 </body>
-
-</html>
 
 </html>
