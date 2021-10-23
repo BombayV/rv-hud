@@ -3,7 +3,6 @@ const doc = document;
 // Hud Main
 const hudSlider = doc.getElementById('hud-slider');
 const hudSelector = doc.getElementById('hud-selector');
-const hudElem = doc.getElementById('hud-element');
 const hudSwitch = doc.getElementById('hud-switch');
 const hudContainer = doc.getElementById('hud-container');
 
@@ -35,7 +34,7 @@ hudSlider.addEventListener('input', e => {
 hudSlider.addEventListener('change', e => {
     let elBlock = doc.getElementsByClassName(hudCurrClass);
     for (let i = 0; i < elBlock.length; i++) {
-        if (hudCurrSelector == 'boxShadow') {
+        if (hudCurrSelector === 'boxShadow') {
             elBlock[i].style[hudCurrSelector] = `0 0.15vh 0.05vh 0.2vh ${setOpacity(doc.getElementById('hud-colorpicker').value, hudAlpha)}`
         } else {
             elBlock[i].style[hudCurrSelector] = setOpacity(doc.getElementById('hud-colorpicker').value, hudAlpha);

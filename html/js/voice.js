@@ -50,3 +50,11 @@ function updateVoice(status) {
         }
     }
 }
+
+$('#voice-container').draggable({containment: "#ui-wrapper", scroll: false})
+
+$("#voice-container").on("dragstop", function(_, ui) {
+    console.log('Moved')
+    storeId('top-hud', ui.position.top);
+    storeId('left-hud', ui.position.left);
+});
