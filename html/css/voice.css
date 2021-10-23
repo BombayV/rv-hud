@@ -1,7 +1,12 @@
+.voice-max {
+    position: absolute;
+
+    top: 91%;
+    left: 93%;
+}
+
 .voice-container {
     position: absolute;
-    bottom: 0;
-    right: 0;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;

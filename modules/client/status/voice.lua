@@ -13,5 +13,6 @@ EVModule.Status.Voice = function()
     status.radioStatus = exports['rp-radio']:IsRadioOn() or false
     status.frequencyStatus = exports['rp-radio']:CurrentFrequency() or 1
     status.isTalking = NetworkIsPlayerTalking(PlayerId())
+    print(status.radioStatus)
     return status
 end

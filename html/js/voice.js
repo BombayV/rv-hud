@@ -7,6 +7,8 @@ let talkingStatus = false;
 const radioText = doc.getElementById('voice-radio-mode');
 const radio = doc.getElementById('voice-radio-cont');
 
+let dragVoiceStatus = false;
+
 function updateVoice(status) {
     doc.getElementById('voice-mode').textContent = VoiceNames[status.modeStatus - 1];
     if (hudStatus) {
@@ -55,6 +57,22 @@ $('#voice-container').draggable({containment: "#ui-wrapper", scroll: false})
 
 $("#voice-container").on("dragstop", function(_, ui) {
     console.log('Moved')
-    storeId('top-hud', ui.position.top);
-    storeId('left-hud', ui.position.left);
+    storeId('top-voice', ui.position.top);
+    storeId('left-voice', ui.position.left);
 });
+
+doc.getElementById('voice-btn-drag').addEventListener('click', () => {
+    console.log($('#voice-container').offset())
+    $("#voice-container").animate({top: '91%', left: '93%'});
+    clearId('top-voice');
+    clearId('left-voice');
+    console.log($('#voice-container').offset())
+})
+
+const restoreVoice = () => {
+    test = $('#voice-container').offset();
+    // Position
+
+    (getId('top-voice') && getId('left-voice') != null) ? $("#voice-container").animate({ top: getId('top-voice'), left: getId('left-voice')}) : false;
+
+}

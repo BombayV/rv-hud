@@ -4,10 +4,13 @@ this.window.addEventListener('load', () => {
     doc.getElementById(Config.defaultApp).click();
 
     // Hud
-    startColorpicker('hud-colorpicker', 'hud-colorpicker-visual', 'hud-colorpicker-text')
-    restoreHud()
+    startColorpicker('hud-colorpicker', 'hud-colorpicker-visual', 'hud-colorpicker-text');
+    restoreHud();
 
     // Carhud
+
+    // Voice
+    restoreVoice();
     
     window.addEventListener('message', e => {
         switch (e.data.action) {
