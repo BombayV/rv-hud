@@ -9,8 +9,8 @@
     <title>Custom Overall Hud</title>
 
     <!--CSS and images links-->
-    <link rel="preload" href="./fonts/KumbhSans-Regular.ttf" as="font" crossorigin="anonymous" />
-    <link rel="preload" href="./fonts/KumbhSans-Bold.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="/html/fonts/KumbhSans-Regular.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="/html/fonts/KumbhSans-Bold.ttf" as="font" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/hud.css">
     <link rel="stylesheet" href="./css/carhud.css">
     <link rel="stylesheet" href="./css/voice.css">
@@ -47,7 +47,7 @@
                     </div>
                     <div class="header-info-container">
                         <i class="fas fa-wifi"></i>
-                        <span style="font-family: defbold; color: var(--text-dark); font-size: 1.0vh;">100%</span>
+                        <span style="font-family: defbold,serif; color: var(--text-dark); font-size: 1.0vh;">100%</span>
                         <i class="fas fa-battery-full"></i>
                     </div>
                 </div>
@@ -56,13 +56,12 @@
                 <div class="tablet-panel-container">
                     <div id="welcome-page" class="panel-page">
                         <div class="welcome-page-container">
-                            <span style="margin-top: 5%; font-size: 4.0vh; text-decoration: underline; font-family: defbold;">Bienvenido a tu Tableta!</span>
+                            <span style="margin-top: 5%; font-size: 4.0vh; text-decoration: underline; font-family: defbold,serif;">Bienvenido a tu Tableta!</span>
                             <span>Alrededor de toda la ciudad, esta tableta estara a tu disposicion en todo momento.</span>
                             <span>A la izquierda podras seleccionar lo que quieras modificar de tu hud en la barra de index. En estas encontraras un selector de color junto con otro selector para lo que quieres cambiar. Todo se guardara automaticamente asi que no te preocupes de que no se guarde algo.</span>
                             <span>Ahora que esperas?
                                 Ve y empieza a personalizar a tu estilo!
                             </span>
-                            <img>
                         </div>
                     </div>
                     <div id="hud-page" class="panel-page">
@@ -77,42 +76,42 @@
                                     <div class="colorpicker-container">
                                         <div class="slider-wrap">
                                             <span id="hud-slider-text">1.0</span>
-                                            <input id="hud-slider" type="range" min="0" max="10" value="10" class="slider">
+                                            <label for="hud-slider"></label><input id="hud-slider" type="range" min="0" max="10" value="10" class="slider">
                                         </div>
                                         <div class="colorpicker-wrap">
-                                            <input id="hud-colorpicker" type="color" class="hidden">
+                                            <label for="hud-colorpicker"></label><input id="hud-colorpicker" type="color" class="hidden">
                                             <span id="hud-colorpicker-text">#ffffffff</span>
-                                            <input id="hud-colorpicker-visual" type="color" class="colorpicker">
+                                            <label for="hud-colorpicker-visual"></label><input id="hud-colorpicker-visual" type="color" class="colorpicker">
                                         </div>
                                     </div>
                                     <span style="margin-top: 20%;">Posicion</span>
                                     <div class="switch-wrap">
-                                        <input id="hud-drag" class="switch" type="checkbox">
+                                        <label for="hud-drag"></label><input id="hud-drag" class="switch" type="checkbox">
                                         <span id="hud-drag-text" class="switch-slider">Inactivo</span>
                                     </div>
                                     <div class="switch-wrap">
-                                        <input id="hud-column" class="switch" type="checkbox">
+                                        <label for="hud-column"></label><input id="hud-column" class="switch" type="checkbox">
                                         <span id="hud-column-text" class="switch-slider">Columna</span>
                                     </div>
                                     <button id="hud-btn-drag" class="btn">Resetear</button>
                                 </div>
                                 <div class="right-column-container">
                                     <span style="margin-top: 20%;">Estilo</span>
-                                    <select class="selector" name="hud-selector" id="hud-selector">
+                                    <label for="hud-selector"></label><select class="selector" name="hud-selector" id="hud-selector">
                                         <option value="color">Color de hud</option>
                                         <option value="background-color">Color de fondo</option>        
                                         <option value="borderColor">Borde</option>
                                         <option value="boxShadow">Sombra</option> 
                                     </select>
                                     <div class="switch-wrap">
-                                        <input id="hud-switch" class="switch" type="checkbox" checked>
+                                        <label for="hud-switch"></label><input id="hud-switch" class="switch" type="checkbox" checked>
                                         <span id="hud-switch-text" class="switch-slider">Activo</span>
                                     </div>
 
                                     <!--Black bars-->
                                     <span style="margin-top: 20%;">Barras</span>
                                     <div class="switch-wrap">
-                                        <input id="hud-bars" class="switch" type="checkbox">
+                                        <label for="hud-bars"></label><input id="hud-bars" class="switch" type="checkbox">
                                         <span id="hud-bars-text" class="switch-slider">Inactivo</span>
                                     </div>
                                     <div class="slider-wrap">
@@ -150,35 +149,35 @@
                                         <div class="colorpicker-container">
                                             <div class="slider-wrap">
                                                 <span id="voice-slider-text">1.0</span>
-                                                <input id="voice-slider" type="range" min="0" max="10" value="10" class="slider">
+                                                <label for="voice-slider"></label><input id="voice-slider" type="range" min="0" max="10" value="10" class="slider">
                                             </div>
                                             <div class="colorpicker-wrap">
-                                                <input id="voice-colorpicker" type="color" class="hidden">
+                                                <label for="voice-colorpicker"></label><input id="voice-colorpicker" type="color" class="hidden">
                                                 <span id="voice-colorpicker-text">#ffffffff</span>
-                                                <input id="voice-colorpicker-visual" type="color" class="colorpicker">
+                                                <label for="voice-colorpicker-visual"></label><input id="voice-colorpicker-visual" type="color" class="colorpicker">
                                             </div>
                                         </div>
                                         <span style="margin-top: 20%;">Posicion</span>
                                         <div class="switch-wrap">
-                                            <input id="voice-drag" class="switch" type="checkbox">
+                                            <label for="voice-drag"></label><input id="voice-drag" class="switch" type="checkbox">
                                             <span id="voice-drag-text" class="switch-slider">Inactivo</span>
                                         </div>
                                         <div class="switch-wrap">
-                                            <input id="voice-column" class="switch" type="checkbox">
+                                            <label for="voice-column"></label><input id="voice-column" class="switch" type="checkbox">
                                             <span id="voice-column-text" class="switch-slider">Solo Visual</span>
                                         </div>
                                         <button id="voice-btn-drag" class="btn">Resetear</button>
                                     </div>
                                     <div class="right-column-container">
                                         <span style="margin-top: 20%;">Estilo</span>
-                                        <select class="selector" name="hud-selector" id="voice-selector">
+                                        <label for="voice-selector"></label><select class="selector" name="hud-selector" id="voice-selector">
                                             <option value="color">Color de hud</option>
                                             <option value="background-color">Color de fondo</option>        
                                             <option value="borderColor">Borde</option>
                                             <option value="boxShadow">Sombra</option> 
                                         </select>
                                         <div class="switch-wrap">
-                                            <input id="voice-switch" class="switch" type="checkbox" checked>
+                                            <label for="voice-switch"></label><input id="voice-switch" class="switch" type="checkbox" checked>
                                             <span id="voice-switch-text" class="switch-slider">Activo</span>
                                         </div>
     
@@ -186,16 +185,16 @@
                                         <span style="margin-top: 20%;">Activo</span>
                                         <div class="slider-wrap">
                                             <span id="talking-slider-text">30%</span>
-                                            <input id="talking-slider" type="range" min="25" max="45" value="30" class="slider">
+                                            <label for="talking-slider"></label><input id="talking-slider" type="range" min="25" max="45" value="30" class="slider">
                                         </div>
                                         <div class="slider-wrap">
                                             <span id="talking-slider-text-alpha">1.0</span>
-                                            <input id="talking-slider-alpha" type="range" min="0" max="10" value="10" class="slider">
+                                            <label for="talking-slider-alpha"></label><input id="talking-slider-alpha" type="range" min="0" max="10" value="10" class="slider">
                                         </div>
                                         <div class="colorpicker-wrap">
-                                            <input id="talking-colorpicker" type="color" class="hidden">
+                                            <label for="talking-colorpicker"></label><input id="talking-colorpicker" type="color" class="hidden">
                                             <span id="talking-colorpicker-text">#000000</span>
-                                            <input id="talking-colorpicker-visual" type="color" class="colorpicker">
+                                            <label for="talking-colorpicker-visual"></label><input id="talking-colorpicker-visual" type="color" class="colorpicker">
                                         </div>
                                     </div>
                                 </div>

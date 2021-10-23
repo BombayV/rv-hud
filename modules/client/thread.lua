@@ -23,7 +23,7 @@ CreateThread(function()
     local sleep = 250
     while true do
         local ped = PlayerPedId()
-        local carhud = EVModule.Status.Carhud(ped, GetVehiclePedIsIn(ped, false))
+        local carhud = EVModule.Status.Carhud(GetVehiclePedIsIn(ped, false))
         if carhud then
             if sleep ~= 250 then
                 sleep = 250

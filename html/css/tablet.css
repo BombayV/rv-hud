@@ -119,7 +119,7 @@ select:focus {
     border-right: none;
     background-color: transparent;
     z-index: 1;
-    transition: left 0;
+    transition: left;
 }
 
 .sidebar-title {

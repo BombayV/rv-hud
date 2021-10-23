@@ -1,8 +1,7 @@
 ---Returns vehicle entity status
----@param ped any
 ---@param vehicle any
 ---@return table
-EVModule.Status.Carhud = function(ped, vehicle)
+EVModule.Status.Carhud = function(vehicle)
     local status = {
         entity = vehicle,
         speed = 0,
