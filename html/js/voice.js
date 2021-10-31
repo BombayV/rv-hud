@@ -7,6 +7,12 @@ let talkingStatus = false;
 const radioText = doc.getElementById('voice-radio-mode');
 const radio = doc.getElementById('voice-radio-cont');
 
+let voiceStatus = true;
+let voiceCinemaStatus = false;
+let voiceCurrSelector = 'color';
+let voiceCurrClass = 'hud-color';
+let voiceAlpha = '1.0';
+let voiceColumnStatus = false;
 let dragVoiceStatus = false;
 
 function updateVoice(status) {
@@ -56,23 +62,54 @@ function updateVoice(status) {
 $('#voice-container').draggable({containment: "#ui-wrapper", scroll: false})
 
 $("#voice-container").on("dragstop", function(_, ui) {
-    console.log('Moved')
     storeId('top-voice', ui.position.top);
     storeId('left-voice', ui.position.left);
 });
 
 doc.getElementById('voice-btn-drag').addEventListener('click', () => {
-    console.log($('#voice-container').offset())
     $("#voice-container").animate({top: '91%', left: '93%'});
     clearId('top-voice');
     clearId('left-voice');
-    console.log($('#voice-container').offset())
 })
 
 const restoreVoice = () => {
-    test = $('#voice-container').offset();
     // Position
-
     (getId('top-voice') && getId('left-voice') != null) ? $("#voice-container").animate({ top: getId('top-voice'), left: getId('left-voice')}) : false;
 
+}
+
+function startColorpickerV(colorpicker, visual, text) {
+    doc.getElementById(visual).value = rgba2hex(getComputedStyle(doc.getElementsByClassName(hudCurrClass)[1])[hudCurrSelector]);
+    doc.getElementById(colorpicker).addEventListener('change', e => updateType(e, hudCurrClass, hudCurrSelector), false);
+    doc.getElementById(colorpicker).addEventListener('input', e => updateColorPicker(e, visual, text), false);
+    doc.getElementById(colorpicker).select();
+}
+
+function updateTypeV(e, className, styleName) {
+    let elBlock = doc.getElementsByClassName(className);
+    for (let i = 0; i < elBlock.length; i++) {
+        if (styleName == 'boxShadow') {
+            elBlock[i].style[styleName] = `0 0.15vh 0.05vh 0.2vh ${setOpacity(e.target.value, hudAlpha)}`
+        } else {
+            elBlock[i].style[styleName] = setOpacity(e.target.value, hudAlpha);
+        }
+    }
+    storeId(`hud-${styleName}`, setOpacity(e.target.value, hudAlpha))
+}
+
+function updateColorPickerV(e, visual, text) {
+    let color = e.target.value;
+    doc.getElementById(visual).value = color;
+    doc.getElementById(text).textContent = setOpacity(color, hudAlpha);
+}
+
+const updateColorsV = (className, type, color) => {
+    let elBlock = doc.getElementsByClassName(`${type}-${className}`);
+    for (let i = 0; i < elBlock.length; i++) {
+        if (`${type}-${className}` == `${type}-boxShadow`) {
+            elBlock[i].style[className] = `0 0.15vh 0.05vh 0.2vh ${color}`
+        } else {
+            elBlock[i].style[className] = color;
+        }
+    }
 }
