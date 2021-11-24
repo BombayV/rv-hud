@@ -8,6 +8,7 @@ const radioText = doc.getElementById('voice-radio-mode');
 const radio = doc.getElementById('voice-radio-cont');
 
 let voiceStatus = true;
+let voiceVisual = false;
 let voiceCinemaStatus = false;
 let voiceCurrSelector = 'color';
 let voiceCurrClass = 'hud-color';
@@ -66,10 +67,33 @@ $("#voice-container").on("dragstop", function(_, ui) {
     storeId('left-voice', ui.position.left);
 });
 
+doc.getElementById('voice-drag').addEventListener('click', () => {
+    if (!dragVoiceStatus) {
+        dragVoiceStatus = true;
+        $("#voice-container").draggable({})
+    } else {
+        dragVoiceStatus = false;
+    }
+})
+
 doc.getElementById('voice-btn-drag').addEventListener('click', () => {
     $("#voice-container").animate({top: '91%', left: '93%'});
     clearId('top-voice');
     clearId('left-voice');
+})
+
+doc.getElementById('voice-column').addEventListener('click', () => {
+    const top = doc.getElementById('voice-radio-mode');
+    const bottom = doc.getElementById('voice-mode');
+    if (!voiceVisual) {
+        top.style.opacity = '0';
+        bottom.style.opacity = '0';
+        voiceVisual = true;
+    } else {
+        top.style.opacity = '1';
+        bottom.style.opacity = '1';
+        voiceVisual = false;
+    }
 })
 
 const restoreVoice = () => {
