@@ -8,10 +8,11 @@ this.window.addEventListener('load', () => {
     restoreHud();
 
     // Carhud
-
+    this.window.localStorage.clear();
     // Voice
+    startVColorpicker('voice-colorpicker', 'voice-colorpicker-visual', 'voice-colorpicker-text')
     restoreVoice();
-    
+
     window.addEventListener('message', e => {
         switch (e.data.action) {
             case 'updateTabletState':

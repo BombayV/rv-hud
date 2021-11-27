@@ -37,6 +37,7 @@ hudSlider.addEventListener('change', e => {
         if (hudCurrSelector === 'boxShadow') {
             elBlock[i].style[hudCurrSelector] = `0 0.15vh 0.05vh 0.2vh ${setOpacity(doc.getElementById('hud-colorpicker').value, hudAlpha)}`
         } else {
+            console.log(doc.getElementById('hud-colorpicker').value)
             elBlock[i].style[hudCurrSelector] = setOpacity(doc.getElementById('hud-colorpicker').value, hudAlpha);
         }
     }
@@ -299,7 +300,7 @@ function updateHud(status) {
     doc.getElementById('hud-stamina').style.height = `${status.stamina}%`;
     doc.getElementById('hud-hunger').style.height = `${status.hunger}%`;
     doc.getElementById('hud-thirst').style.height = `${status.thirst}%`;
-    doc.getElementById('hud-stress').style.height = `${status.stress}%`;  
+    doc.getElementById('hud-stress').style.height = `${status.stress}%`;
 }
 
 const updateColors = (className, type, color) => {
