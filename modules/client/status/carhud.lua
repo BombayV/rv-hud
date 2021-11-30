@@ -54,3 +54,4 @@ EVModule.Status.Carhud = function(vehicle)
 
     return status
 end
+
