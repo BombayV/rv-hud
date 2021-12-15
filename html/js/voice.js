@@ -14,9 +14,17 @@ let voiceCurrClass = 'voice-color';
 let voiceAlphaOne = '1.0';
 let dragVoiceStatus = false;
 
+let talkingSize = '0.3vh'
+
 doc.getElementById('voice-slider').addEventListener('input', e => {
     voiceAlphaOne = e.target.value;
     voiceAlphaOne < 10 ? voiceAlphaOne = `0.${voiceAlphaOne}` : voiceAlphaOne = '1.0';
+    doc.getElementById('voice-slider-text').textContent = voiceAlphaOne;
+    doc.getElementById('voice-colorpicker-text').textContent = setOpacity(doc.getElementById('voice-colorpicker').value, voiceAlphaOne);
+})
+
+doc.getElementById('talking-slider').addEventListener('input', e => {
+    talkingSize = (e.target.value);
     doc.getElementById('voice-slider-text').textContent = voiceAlphaOne;
     doc.getElementById('voice-colorpicker-text').textContent = setOpacity(doc.getElementById('voice-colorpicker').value, voiceAlphaOne);
 })
