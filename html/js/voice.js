@@ -166,7 +166,7 @@ doc.getElementById('voice-drag').addEventListener('click', () => {
 })
 
 doc.getElementById('voice-btn-drag').addEventListener('click', () => {
-    $("#voice-container").animate({top: '91%', left: '93%'});
+    $("#voice-container").animate({top: '100%', left: '93%'});
     clearId('top-voice');
     clearId('left-voice');
 })
@@ -202,7 +202,7 @@ doc.getElementById('voice-switch').addEventListener('click', () => {
 })
 
 doc.getElementById('reset-voice').addEventListener('click', e => {
-    $("#voice-container").animate({top: '91%', left: '93%'});
+    $("#voice-container").animate({top: '100%', left: '93%'});
     doc.getElementById('voice-selector').value = doc.getElementById('voice-selector')[0].value;
 
     doc.getElementById('voice-switch').checked = true;

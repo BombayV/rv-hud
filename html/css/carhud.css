@@ -12,7 +12,7 @@
     position: relative;
     bottom: 0;
     left: 0;
-    display: flex;
+    display: none;
     justify-content: space-evenly;
     align-items: center;
     width: 22%;

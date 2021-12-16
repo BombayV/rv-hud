@@ -1,7 +1,6 @@
 .voice-max {
     position: absolute;
-
-    top: 91%;
+    top: 100%;
     left: 93%;
 }
 
@@ -11,6 +10,7 @@
     justify-content: flex-end;
     align-items: flex-end;
     flex-direction: column;
+    height: 10%;
     margin-right: 0.50%;
     margin-bottom: 0.25%;
     user-select: none;
