@@ -15,6 +15,8 @@ let voiceAlphaOne = '1.0';
 let dragVoiceStatus = false;
 
 let talkingSize = '0.3vh'
+let talkingColor = doc.getElementById('voice-box').style.backgroundColor
+let talkingAlpha = '1.0'
 
 doc.getElementById('voice-slider').addEventListener('input', e => {
     voiceAlphaOne = e.target.value;
@@ -24,9 +26,17 @@ doc.getElementById('voice-slider').addEventListener('input', e => {
 })
 
 doc.getElementById('talking-slider').addEventListener('input', e => {
-    talkingSize = (e.target.value);
-    doc.getElementById('voice-slider-text').textContent = voiceAlphaOne;
-    doc.getElementById('voice-colorpicker-text').textContent = setOpacity(doc.getElementById('voice-colorpicker').value, voiceAlphaOne);
+    talkingSize = `0.${(e.target.value)}vh`;
+    doc.getElementById('talking-slider-text').textContent = talkingSize;
+    storeId('talking-size', talkingSize)
+})
+
+doc.getElementById('talking-slider-alpha').addEventListener('input', e => {
+    talkingAlpha = e.target.value;
+    talkingAlpha < 10 ? talkingAlpha = `0.${talkingAlpha}` : talkingAlpha = '1.0';
+    doc.getElementById('talking-slider-text-alpha').textContent = talkingAlpha;
+    doc.getElementById('talking-colorpicker-text').textContent = setOpacity(doc.getElementById('talking-colorpicker').value, talkingAlpha);
+    storeId('talking-alpha', talkingAlpha)
 })
 
 doc.getElementById('voice-slider').addEventListener('change', e => {
@@ -51,6 +61,17 @@ doc.getElementById('voice-selector').addEventListener('change', e => {
     doc.getElementById('voice-colorpicker-visual').value = currColor;
     doc.getElementById('voice-colorpicker-text').textContent = setOpacity(currColor, voiceAlphaOne);
 })
+
+doc.getElementById('talking-colorpicker-visual').value = '#000000';
+doc.getElementById('talking-colorpicker').addEventListener('input', e => {
+    doc.getElementById('talking-colorpicker-visual').value = e.target.value
+    doc.getElementById('talking-colorpicker-text').textContent = setOpacity(e.target.value, talkingAlpha)
+    talkingColor = setOpacity(e.target.value, talkingAlpha)
+}, false);
+doc.getElementById('talking-colorpicker').addEventListener('change', e => {
+
+})
+doc.getElementById('talking-colorpicker').select();
 
 function startVColorpicker(colorpicker, visual, text) {
     doc.getElementById(visual).value = rgba2hex(getComputedStyle(doc.getElementsByClassName(voiceCurrClass)[1])[voiceCurrSelector]);

@@ -1,4 +1,6 @@
 this.window.addEventListener('load', () => {
+    this.window.localStorage.clear();
+
     // Tablet
     restoreTablet();
     doc.getElementById(Config.defaultApp).click();
@@ -8,7 +10,8 @@ this.window.addEventListener('load', () => {
     restoreHud();
 
     // Carhud
-    this.window.localStorage.clear();
+    startDColorpicker('cd-colorpicker', 'cd-colorpicker-visual', 'cd-colorpicker-text');
+    restoreCarhud();
     // Voice
     startVColorpicker('voice-colorpicker', 'voice-colorpicker-visual', 'voice-colorpicker-text')
     restoreVoice();

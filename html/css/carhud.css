@@ -1,14 +1,26 @@
-.carhud-container {
+.carhud-wrap {
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: none;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.carhud-container {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 22%;
     height: 15%;
+    margin-bottom: 0.5%;
     user-select: none;
+    z-index: 5;
+    cursor: pointer;
 }
 
 .dash-small-container {

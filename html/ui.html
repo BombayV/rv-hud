@@ -130,8 +130,61 @@
                         <div class="page-container">
                             <span style="margin-top: 2.5%;">Carhud</span>
                             <div class="page-subs-container">
-                                <span>Color Picker</span>
-                                <span>Type</span>
+                                <div class="page-subs-container">
+                                    <div class="left-column-container">
+                                        <span style="margin-top: 20%;">Color</span>
+                                        <div class="colorpicker-container">
+                                            <div class="slider-wrap">
+                                                <span id="cd-slider-text">1.0</span>
+                                                <label for="cd-slider"></label><input id="cd-slider" type="range" min="0" max="10" value="10" class="slider">
+                                            </div>
+                                            <div class="colorpicker-wrap">
+                                                <label for="cd-colorpicker"></label><input id="cd-colorpicker" type="color" class="hidden">
+                                                <span id="cd-colorpicker-text">#ffffffff</span>
+                                                <label for="cd-colorpicker-visual"></label><input id="cd-colorpicker-visual" type="color" class="colorpicker">
+                                            </div>
+                                        </div>
+                                        <span style="margin-top: 20%;">Posicion</span>
+                                        <div class="switch-wrap">
+                                            <label for="cd-drag"></label><input id="cd-drag" class="switch" type="checkbox">
+                                            <span id="cd-drag-text" class="switch-slider">Inactivo</span>
+                                        </div>
+                                        <div class="switch-wrap">
+                                            <label for="cd-column"></label><input id="cd-column" class="switch" type="checkbox">
+                                            <span id="cd-column-text" class="switch-slider">Minimizar</span>
+                                        </div>
+                                        <button id="cd-btn-drag" class="btn">Resetear</button>
+                                    </div>
+                                    <div class="right-column-container">
+                                        <span style="margin-top: 20%;">Estilo</span>
+                                        <label for="cd-selector"></label><select class="selector" name="hud-selector" id="cd-selector">
+                                            <option value="color">Color de hud</option>
+                                            <option value="background-color">Color de fondo</option>
+                                            <option value="borderColor">Borde</option>
+                                            <option value="boxShadow">Sombra</option>
+                                        </select>
+                                        <div class="switch-wrap">
+                                            <label for="cd-switch"></label><input id="cd-switch" class="switch" type="checkbox" checked>
+                                            <span id="cd-switch-text" class="switch-slider">Activo</span>
+                                        </div>
+
+                                        <!--Talking Increase-->
+                                        <span style="margin-top: 20%;">Activo</span>
+                                        <div class="slider-wrap">
+                                            <span id="cd-slider-text-ms">100ms</span>
+                                            <label for="cd-slider-ms"></label><input id="cd-slider-ms" type="range" min="20" max="45" value="30" class="slider">
+                                        </div>
+                                        <div class="slider-wrap">
+                                            <span id="">1.0</span>
+                                            <label for=""></label><input id="" type="range" min="0" max="10" value="10" class="slider">
+                                        </div>
+                                        <div class="colorpicker-wrap">
+                                            <label for=""></label><input id="" type="color" class="hidden">
+                                            <span id="">#000000</span>
+                                            <label for=""></label><input id="" type="color" class="colorpicker">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -252,23 +305,26 @@
     </div>
 
     <!--Carhud-->
-    <div id="carhud" class="carhud-container">
-        <div class="dash-small-container">
-            <i class="fas fa-gas-pump"></i>
-            <span id="carhud-fuel">100</span>
-        </div>
-        <div class="dash-container">
-            <span id="carhud-rpm" style="margin-top: 2.5%;">10000</span>
-            <div class="speed-container">
-                <span id="carhud-speed">000</span>
+    <div class="carhud-wrap">
+        <div id="carhud" class="carhud-container">
+            <div id="cd-top" class="dash-small-container cd-background-color cd-borderColor cd-boxShadow">
+                <i class="fas fa-gas-pump cd-color"></i>
+                <span id="carhud-fuel" class="cd-color">100</span>
             </div>
-            <span id="carhud-gear" style="margin-bottom: 2.5%;">N</span>
-        </div>
-        <div class="dash-small-container">
-            <i class="fas fa-car-crash"></i>
-            <span id="carhud-damage">100</span>
+            <div class="dash-container cd-background-color cd-borderColor cd-boxShadow">
+                <span id="carhud-rpm" style="margin-top: 2.5%;" class="cd-color">10000</span>
+                <div class="speed-container">
+                    <span id="carhud-speed" class="cd-color">000</span>
+                </div>
+                <span id="carhud-gear" style="margin-bottom: 2.5%;" class="cd-color">N</span>
+            </div>
+            <div id="cd-bottom" class="dash-small-container cd-background-color cd-borderColor cd-boxShadow">
+                <i class="fas fa-car-crash cd-color"></i>
+                <span id="carhud-damage" class="cd-color">100</span>
+            </div>
         </div>
     </div>
+
 
     <!--Voice-->
     <div class="voice-max">

@@ -250,10 +250,10 @@ select:focus {
     transform: scale(1.05);
 }
 
-@keyframes spinRotate { 
+@keyframes spinRotate {
     0% {
-      -webkit-transform: rotate(360deg); 
-      transform:rotate(360deg); 
+      -webkit-transform: rotate(360deg);
+      transform:rotate(360deg);
     }
 }
 
@@ -494,7 +494,7 @@ input:checked + .switch-slider {
 }
 
 .colorpicker::-webkit-color-swatch-wrapper {
-    padding: 0.0vh; 
+    padding: 0.0vh;
     border: none;
 }
 
