@@ -60,13 +60,15 @@ doc.getElementById('voice-selector').addEventListener('change', e => {
     doc.getElementById('voice-colorpicker-text').textContent = setOpacity(currColor, voiceAlphaOne);
 })
 
-doc.getElementById('talking-colorpicker-visual').value = '#FFFFFF';
 doc.getElementById('talking-colorpicker').addEventListener('input', e => {
     doc.getElementById('talking-colorpicker-visual').value = e.target.value
-    doc.getElementById('talking-colorpicker-text').textContent = setOpacity(e.target.value, talkingAlpha)
+    doc.getElementById('talking-colorpicker-text').textContent = setOpacity(e.target.value, talkingAlpha);
     talkingColor = setOpacity(e.target.value, talkingAlpha)
     storeId('talking-color', talkingColor)
 }, false);
+
+doc.getElementById('talking-colorpicker-visual').value = '#ffffff';
+doc.getElementById('talking-colorpicker-text').textContent = '#ffffff';
 
 doc.getElementById('talking-colorpicker').select();
 
