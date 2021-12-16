@@ -269,14 +269,12 @@ doc.getElementById('reset-voice').addEventListener('click', e => {
 const restoreVoice = () => {
     (getId('voice-one-alpha') != null) ? (voiceAlphaOne = getId('voice-one-alpha'), doc.getElementById('voice-slider-text').textContent = getId('voice-one-alpha'), (getId('voice-one-alpha') > 0.9) ? doc.getElementById('voice-slider').value = 10 : doc.getElementById('voice-slider').value = getId('voice-one-alpha').substring(2)) : false;
 
-
     // Position
     (getId('top-voice') && getId('left-voice') != null) ? $("#voice-container").animate({ top: getId('top-voice'), left: getId('left-voice')}) : false;
     (getId('voice-color') != null) ? (updateVColors('color', 'voice', getId('voice-color')), doc.getElementById('voice-colorpicker-visual').value = doc.getElementById('voice-colorpicker').value = getId('voice-color').substr(0, '7'), doc.getElementById('voice-colorpicker-text').textContent = getId('voice-color')) : doc.getElementById('voice-colorpicker').value = rgba2hex(getComputedStyle(doc.getElementsByClassName(voiceCurrClass)[1])[voiceCurrSelector]);
     (getId('voice-background-color') != null) ? (updateColors('background-color', 'voice', getId('voice-background-color'))) : false;
     (getId('voice-borderColor') != null) ? (updateColors('borderColor', 'voice', getId('voice-borderColor'))) : false;
     (getId('voice-boxShadow') != null) ? (updateColors('boxShadow', 'voice', getId('voice-boxShadow'))) : false;
-
 
     (getBool('voice-switch') != null) ? voiceStatus = getBool('voice-switch') : voiceStatus;
     doc.getElementById('voice-switch').checked = voiceStatus;

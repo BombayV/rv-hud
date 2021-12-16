@@ -45,8 +45,6 @@ doc.getElementById('cd-slider').addEventListener('change', e => {
         if (cdCurrSelector === 'boxShadow') {
             elBlock[i].style[cdCurrSelector] = `0 0.15vh 0.05vh 0.2vh ${setOpacity(doc.getElementById('cd-colorpicker').value, cdAlpha)}`
         } else {
-            console.log(doc.getElementById('cd-colorpicker').value)
-            console.log(setOpacity(doc.getElementById('cd-colorpicker').value, cdAlpha))
             elBlock[i].style[cdCurrSelector] = setOpacity(doc.getElementById('cd-colorpicker').value, cdAlpha);
         }
     }
@@ -79,9 +77,15 @@ doc.getElementById('cd-switch').addEventListener('click', () => {
         doc.getElementById('cd-switch-text').textContent = 'Inactivo';
         doc.getElementById('carhud').style.display = 'none';
     }
+    storeId('cd-visual', cdVisual);
 })
 
 $('#carhud').draggable({containment: "#ui-wrapper", scroll: false})
+
+$("#carhud").on("dragstop", function(_, ui) {
+    storeId('top-cd', ui.position.top);
+    storeId('left-cd', ui.position.left);
+});
 
 doc.getElementById('cd-btn-drag').addEventListener('click', () => {
     $("#carhud").animate({top: '0', left: '0'});
@@ -99,6 +103,7 @@ doc.getElementById('cd-drag').addEventListener('click', () => {
         doc.getElementById('cd-drag-text').textContent = 'Inactivo';
         $("#carhud").draggable({disabled: false})
     }
+    storeId('cd-drag-status', cdMin);
 })
 
 doc.getElementById('cd-column').addEventListener('click', () => {
@@ -115,6 +120,7 @@ doc.getElementById('cd-column').addEventListener('click', () => {
         bottom.style.opacity = '1';
         cdMin = true;
     }
+    storeId('cd-min', cdMin);
 })
 
 function startDColorpicker(colorpicker, visual, text) {
@@ -143,5 +149,34 @@ function updateDColorPicker(e, visual, text) {
 }
 
 const restoreCarhud = _ => {
+    (getId('cd-alpha') != null) ? (cdAlpha = getId('cd-alpha'), doc.getElementById('cd-slider-text').textContent = getId('cd-alpha'), (getId('cd-alpha') > 0.9) ? doc.getElementById('cd-slider').value = 10 : doc.getElementById('cd-slider').value = getId('cd-alpha').substring(2)) : false;
 
+    (getId('top-cd') && getId('left-cd') != null) ? $("#carhud").animate({ top: getId('top-cd'), left: getId('left-cd')}) : false;
+    (getId('cd-color') != null) ? (updateVColors('color', 'cd', getId('cd-color')), doc.getElementById('cd-colorpicker-visual').value = doc.getElementById('cd-colorpicker').value = getId('cd-color').substr(0, '7'), doc.getElementById('cd-colorpicker-text').textContent = getId('cd-color')) : doc.getElementById('cd-colorpicker').value = rgba2hex(getComputedStyle(doc.getElementsByClassName(cdCurrClass)[1])[cdCurrSelector]);
+    (getId('cd-background-color') != null) ? (updateColors('background-color', 'cd', getId('cd-background-color'))) : false;
+    (getId('cd-borderColor') != null) ? (updateColors('borderColor', 'cd', getId('cd-borderColor'))) : false;
+    (getId('cd-boxShadow') != null) ? (updateColors('boxShadow', 'cd', getId('cd-boxShadow'))) : false;
+
+    (getBool('cd-visual') != null) ? cdVisual = getBool('cd-visual') : cdVisual;
+    doc.getElementById('cd-switch').checked = cdVisual;
+    if (!cdVisual) {
+        doc.getElementById('cd-switch-text').textContent = 'Inactivo';
+        doc.getElementById('carhud').style.display = 'none';
+    }
+
+    (getBool('cd-drag-status') != null) ? (dragCdStatus = getBool('cd-drag-status'), $("#carhud").draggable({ disabled: getBool('cd-drag-status')})) : dragCdStatus;
+    doc.getElementById('cd-drag').checked = dragCdStatus;
+    if (dragCdStatus) {
+        doc.getElementById('cd-drag-text').textContent = 'Activo';
+    }
+
+    (getBool('cd-min') != null) ? (cdMin = getBool('cd-min')) : cdMin;
+    doc.getElementById('cd-column').checked = cdMin
+    const top = doc.getElementById('cd-top');
+    const bottom = doc.getElementById('cd-bottom');
+    if (!cdMin) {
+        doc.getElementById('cd-column-text').textContent = 'Maximizar';
+        top.style.opacity = '0';
+        bottom.style.opacity = '0';
+    }
 }

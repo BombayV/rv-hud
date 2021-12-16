@@ -37,7 +37,6 @@ hudSlider.addEventListener('change', e => {
         if (hudCurrSelector === 'boxShadow') {
             elBlock[i].style[hudCurrSelector] = `0 0.15vh 0.05vh 0.2vh ${setOpacity(doc.getElementById('hud-colorpicker').value, hudAlpha)}`
         } else {
-            console.log(doc.getElementById('hud-colorpicker').value)
             elBlock[i].style[hudCurrSelector] = setOpacity(doc.getElementById('hud-colorpicker').value, hudAlpha);
         }
     }
