@@ -67,10 +67,9 @@ doc.getElementById('talking-colorpicker').addEventListener('input', e => {
     doc.getElementById('talking-colorpicker-visual').value = e.target.value
     doc.getElementById('talking-colorpicker-text').textContent = setOpacity(e.target.value, talkingAlpha)
     talkingColor = setOpacity(e.target.value, talkingAlpha)
+    storeId('talking-color', talkingColor)
 }, false);
-doc.getElementById('talking-colorpicker').addEventListener('change', e => {
 
-})
 doc.getElementById('talking-colorpicker').select();
 
 function startVColorpicker(colorpicker, visual, text) {
@@ -159,6 +158,7 @@ doc.getElementById('voice-drag').addEventListener('click', () => {
         doc.getElementById('voice-drag-text').textContent = 'Inactivo';
         $("#voice-container").draggable({disabled: false})
     }
+    storeId('voice-drag-status', dragVoiceStatus)
 })
 
 doc.getElementById('voice-btn-drag').addEventListener('click', () => {
@@ -181,6 +181,7 @@ doc.getElementById('voice-column').addEventListener('click', () => {
         bottom.style.opacity = '1';
         voiceVisual = false;
     }
+    storeId('voice-min', voiceVisual)
 })
 
 doc.getElementById('voice-switch').addEventListener('click', () => {
@@ -193,12 +194,48 @@ doc.getElementById('voice-switch').addEventListener('click', () => {
         doc.getElementById('voice-switch-text').textContent = 'Inactivo';
         doc.getElementById('voice-container').style.display = 'none';
     }
+    storeId('voice-switch', voiceStatus)
 })
 
 const restoreVoice = () => {
+    (getId('voice-one-alpha') != null) ? (voiceAlphaOne = getId('voice-one-alpha'), doc.getElementById('voice-slider-text').textContent = getId('voice-one-alpha'), (getId('voice-one-alpha') > 0.9) ? doc.getElementById('voice-slider').value = 10 : doc.getElementById('voice-slider').value = getId('voice-one-alpha').substring(2)) : false;
+
+
     // Position
     (getId('top-voice') && getId('left-voice') != null) ? $("#voice-container").animate({ top: getId('top-voice'), left: getId('left-voice')}) : false;
     (getId('voice-color') != null) ? (updateVColors('color', 'voice', getId('voice-color')), doc.getElementById('voice-colorpicker-visual').value = doc.getElementById('voice-colorpicker').value = getId('voice-color').substr(0, '7'), doc.getElementById('voice-colorpicker-text').textContent = getId('voice-color')) : doc.getElementById('voice-colorpicker').value = rgba2hex(getComputedStyle(doc.getElementsByClassName(voiceCurrClass)[1])[voiceCurrSelector]);
+    (getId('voice-background-color') != null) ? (updateColors('background-color', 'voice', getId('voice-background-color'))) : false;
+    (getId('voice-borderColor') != null) ? (updateColors('borderColor', 'voice', getId('voice-borderColor'))) : false;
+    (getId('voice-boxShadow') != null) ? (updateColors('boxShadow', 'voice', getId('voice-boxShadow'))) : false;
+
+
+    (getBool('voice-switch') != null) ? voiceStatus = getBool('voice-switch') : voiceStatus;
+    doc.getElementById('voice-switch').checked = voiceStatus;
+    if (!voiceStatus) {
+        doc.getElementById('voice-switch-text').textContent = 'Inactivo';
+        doc.getElementById('voice-container').style.display = 'none';
+    }
+
+    (getBool('voice-drag-status') != null) ? (dragVoiceStatus = getBool('voice-drag-status'), $("#voice-container").draggable({ disabled: getBool('voice-drag-status')})) : dragVoiceStatus;
+    doc.getElementById('voice-drag').checked = dragVoiceStatus;
+    if (dragVoiceStatus) {
+        doc.getElementById('voice-drag-text').textContent = 'Activo';
+    }
+
+    (getBool('voice-min') != null) ? (voiceVisual = getBool('voice-min')) : voiceVisual;
+    doc.getElementById('voice-column').checked = voiceVisual
+    const top = doc.getElementById('voice-radio-mode');
+    const bottom = doc.getElementById('voice-mode');
+    if (voiceVisual) {
+        doc.getElementById('voice-column-text').textContent = 'Maximizar';
+        top.style.opacity = '0';
+        bottom.style.opacity = '0';
+    }
+
+    (getId('talking-size') != null) ? (talkingSize = getId('talking-size'), doc.getElementById('talking-slider-text').textContent = talkingSize, doc.getElementById('talking-slider').value = talkingSize.slice(2, 3) + talkingSize.slice(3, 4)): talkingSize;
+    (getId('talking-alpha') != null) ? (talkingAlpha = getId('talking-alpha'), doc.getElementById('talking-slider-text-alpha').textContent = talkingAlpha, (getId('talking-alpha') > 0.9) ? doc.getElementById('talking-slider-alpha').value = 10 : doc.getElementById('talking-slider-alpha').value = getId('talking-alpha').substring(2)): talkingAlpha;
+
+    (getId('talking-color') != null) ? (talkingColor = getId('talking-color'), doc.getElementById('talking-colorpicker-text').textContent = talkingColor, doc.getElementById('talking-colorpicker-visual').value = getId('talking-color').substr(0, '7')): talkingColor;
 }
 
 const updateVColors = (className, type, color) => {

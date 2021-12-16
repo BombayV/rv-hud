@@ -1,2 +1,2 @@
 Config = {}
-Config.defaultApp = 'carhud-index'; // type-index or welcome-page
+Config.defaultApp = 'voice-index'; // type-index or welcome-page

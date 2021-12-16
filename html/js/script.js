@@ -1,5 +1,5 @@
 this.window.addEventListener('load', () => {
-    this.window.localStorage.clear();
+    //this.window.localStorage.clear();
 
     // Tablet
     restoreTablet();
