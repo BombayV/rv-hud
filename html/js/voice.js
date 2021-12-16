@@ -45,8 +45,6 @@ doc.getElementById('voice-slider').addEventListener('change', e => {
         if (voiceCurrSelector === 'boxShadow') {
             elBlock[i].style[voiceCurrSelector] = `0 0.15vh 0.05vh 0.2vh ${setOpacity(doc.getElementById('voice-colorpicker').value, voiceAlphaOne)}`
         } else {
-            console.log(doc.getElementById('voice-colorpicker').value)
-            console.log(setOpacity(doc.getElementById('voice-colorpicker').value, voiceAlphaOne))
             elBlock[i].style[voiceCurrSelector] = setOpacity(doc.getElementById('voice-colorpicker').value, voiceAlphaOne);
         }
     }
@@ -62,7 +60,7 @@ doc.getElementById('voice-selector').addEventListener('change', e => {
     doc.getElementById('voice-colorpicker-text').textContent = setOpacity(currColor, voiceAlphaOne);
 })
 
-doc.getElementById('talking-colorpicker-visual').value = '#000000';
+doc.getElementById('talking-colorpicker-visual').value = '#FFFFFF';
 doc.getElementById('talking-colorpicker').addEventListener('input', e => {
     doc.getElementById('talking-colorpicker-visual').value = e.target.value
     doc.getElementById('talking-colorpicker-text').textContent = setOpacity(e.target.value, talkingAlpha)
@@ -195,6 +193,71 @@ doc.getElementById('voice-switch').addEventListener('click', () => {
         doc.getElementById('voice-container').style.display = 'none';
     }
     storeId('voice-switch', voiceStatus)
+})
+
+doc.getElementById('reset-voice').addEventListener('click', e => {
+    $("#voice-container").animate({top: '91%', left: '93%'});
+    doc.getElementById('voice-selector').value = doc.getElementById('voice-selector')[0].value;
+
+    doc.getElementById('voice-switch').checked = true;
+    doc.getElementById('voice-switch-text').textContent = 'Activo';
+    doc.getElementById('voice-container').style.display = 'flex';
+
+    doc.getElementById('voice-drag').checked = false;
+    doc.getElementById('voice-drag-text').textContent = 'Inactivo';
+    $("#voice-container").draggable({disabled: false})
+
+    doc.getElementById('voice-column').checked = false;
+    doc.getElementById('voice-column-text').textContent = 'Minimizar';
+    const top = doc.getElementById('voice-radio-mode');
+    const bottom = doc.getElementById('voice-mode');
+    top.style.opacity = '1';
+    bottom.style.opacity = '1';
+
+    doc.getElementById('talking-slider-text-alpha').textContent = '1.0';
+    doc.getElementById('talking-slider-alpha').value = 10;
+    doc.getElementById('talking-slider-text').textContent = '0.3vh';
+    doc.getElementById('talking-slider').value = 30;
+    doc.getElementById('talking-colorpicker-text').textContent = '#ffffff';
+    doc.getElementById('talking-colorpicker-visual').value = '#ffffff';
+    doc.getElementById('talking-colorpicker').value = '#ffffff';
+    doc.getElementById('voice-drag').checked = false;
+    doc.getElementById('voice-drag-text').textContent = 'Inactivo';
+    doc.getElementById('voice-slider').value = 10;
+    doc.getElementById('voice-slider-text').textContent = '1.0';
+    doc.getElementById('voice-colorpicker-text').textContent = '#ffffffff';
+    doc.getElementById('voice-colorpicker').value = '#ffffff';
+    doc.getElementById('voice-colorpicker-visual').value = '#ffffff';
+    updateVColors('background-color', 'voice', '#000000');
+    updateVColors('color', 'voice', '#ffffff');
+    updateVColors('borderColor', 'voice', '#ffffff');
+    updateVColors('boxShadow', 'voice', '#000000');
+
+    // Set all vars to default
+    voiceStatus = true;
+    voiceVisual = false;
+    voiceCurrSelector = 'color';
+    voiceCurrClass = 'voice-color';
+    voiceAlphaOne = '1.0';
+    dragVoiceStatus = false;
+    talkingSize = '0.3vh'
+    talkingColor = doc.getElementById('voice-box').style.backgroundColor
+    talkingAlpha = '1.0'
+
+    // Reset all items to default
+    clearId('voice-one-alpha');
+    clearId('voice-color');
+    clearId('voice-background-color');
+    clearId('voice-borderColor');
+    clearId('voice-boxShadow');
+    clearId('voice-switch');
+    clearId('voice-min')
+    clearId('top-voice');
+    clearId('left-voice');
+    clearId('talking-size');
+    clearId('talking-alpha');
+    clearId('talking-color');
+    clearId('voice-drag-status');
 })
 
 const restoreVoice = () => {
