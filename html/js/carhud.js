@@ -103,7 +103,7 @@ doc.getElementById('cd-drag').addEventListener('click', () => {
         doc.getElementById('cd-drag-text').textContent = 'Inactivo';
         $("#carhud").draggable({disabled: false})
     }
-    storeId('cd-drag-status', cdMin);
+    storeId('cd-drag-status', dragCdStatus);
 })
 
 doc.getElementById('cd-column').addEventListener('click', () => {
@@ -121,6 +121,59 @@ doc.getElementById('cd-column').addEventListener('click', () => {
         cdMin = true;
     }
     storeId('cd-min', cdMin);
+})
+
+doc.getElementById('reset-cd').addEventListener('click', e => {
+    $("#carhud").animate({top: '0', left: '0'});
+    doc.getElementById('cd-selector').value = doc.getElementById('cd-selector')[0].value;
+
+    doc.getElementById('cd-switch').checked = true;
+    doc.getElementById('cd-switch-text').textContent = 'Activo';
+    doc.getElementById('carhud').style.display = 'flex';
+
+    doc.getElementById('cd-drag').checked = false;
+    doc.getElementById('cd-drag-text').textContent = 'Inactivo';
+    $("#carhud").draggable({disabled: false})
+
+    doc.getElementById('cd-column').checked = false;
+    doc.getElementById('cd-column-text').textContent = 'Minimizar';
+    const top = doc.getElementById('cd-top');
+    const bottom = doc.getElementById('cd-bottom');
+    top.style.opacity = '1';
+    bottom.style.opacity = '1';
+
+    doc.getElementById('cd-drag').checked = false;
+    doc.getElementById('cd-drag-text').textContent = 'Inactivo';
+    doc.getElementById('cd-slider').value = 10;
+    doc.getElementById('cd-slider-text').textContent = '1.0';
+    doc.getElementById('cd-colorpicker-text').textContent = '#ffffffff';
+    doc.getElementById('cd-colorpicker').value = '#ffffff';
+    doc.getElementById('cd-colorpicker-visual').value = '#ffffff';
+    updateVColors('background-color', 'cd', '#000000');
+    updateVColors('color', 'cd', '#ffffff');
+    updateVColors('borderColor', 'cd', '#ffffff');
+    updateVColors('boxShadow', 'cd', '#000000');
+
+    // Set all vars to default
+    cdVisual = true;
+    cdMin = true;
+    cdAlpha = '1.0';
+    cdCurrSelector = 'color';
+    cdCurrClass = 'cd-color';
+    dragCdStatus = false;
+    cdAlpha = '1.0'
+
+    // Reset all items to default
+    clearId('cd-alpha');
+    clearId('cd-color');
+    clearId('cd-background-color');
+    clearId('cd-borderColor');
+    clearId('cd-boxShadow');
+    clearId('cd-visual');
+    clearId('cd-min')
+    clearId('top-cd');
+    clearId('left-cd');
+    clearId('cd-drag-status');
 })
 
 function startDColorpicker(colorpicker, visual, text) {
