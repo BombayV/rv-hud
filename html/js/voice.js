@@ -124,16 +124,20 @@ function updateVoice(status) {
         if (status.isTalking) {
             if (!talkingStatus) {
                 talkingStatus = true;
-                doc.getElementById('voice-box').style.borderWidth = "0.3vh";
+                doc.getElementById('voice-box').style.borderWidth = talkingSize;
+                doc.getElementById('voice-box').style.borderColor = talkingColor;
                 if (radioStatus) {
-                    doc.getElementById('voice-radio-box').style.borderWidth = "0.3vh";
+                    doc.getElementById('voice-radio-box').style.borderWidth = talkingSize;
+                    doc.getElementById('voice-box').style.borderColor = talkingColor;
                 }
             }
         } else if (talkingStatus && !status.isTalking) {
             talkingStatus = false;
             doc.getElementById('voice-box').style.borderWidth = "0.2vh";
+            doc.getElementById('voice-box').style.borderColor = getId('voice-borderColor');
             if (radioStatus) {
-                doc.getElementById('voice-radio-box').style.borderWidth = "0.2vh";
+                doc.getElementById('voice-radio-box').style.borderWidth = "0.2vh" || '#ffffff';
+                doc.getElementById('voice-box').style.borderColor = getId('voice-borderColor') || '#ffffff';
             }
         }
     }
